@@ -1,1 +1,3 @@
-# Hello VitePress
+# 안녕하세요 logone의 블로그 입니다.
+
+개설일: 2023년 1월 17일 
