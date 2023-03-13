@@ -7,7 +7,7 @@
   "author": "logan <logan@teamo2.kr>",
   "license": "MIT",
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.36",
+    "vitepress": "^1.0.0-alpha.54",
     "vue": "^3.2.45"
   },
   "scripts": {
