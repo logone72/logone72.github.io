@@ -1,13 +1,11 @@
 export default {
     title: 'logone72 blog',
     description: 'frontend developer logone72 blog',
-    // base: '',
 
     themeConfig: {
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Blog', link: '/노트/' },
-            { text: 'External', link: 'https://google.com' },
+            { text: 'Github', link: 'https://github.com/logone72/logone72.github.io' },
         ],
         sidebar: [
             {
