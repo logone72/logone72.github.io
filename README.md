@@ -4,7 +4,7 @@
 ## command 
 
 ```
-yarn docs:dev
-yarn docs:build
-yarn docs:preview
+yarn dev
+yarn build
+yarn preview
 ```
