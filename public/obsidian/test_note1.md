@@ -7,6 +7,7 @@ function test() {
     console.log('test')
 }
 ```
+[[test-note2]]
 
 ==안녕하세요==
 
