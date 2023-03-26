@@ -23,7 +23,7 @@ class Lavencha {
         this.original.filePaths = readAllFilePaths(this.original.directoryPath, []);
         this.original.fileItems = readFiles(this.original.filePaths)
 
-        this.cache.vitepressPaths = this.original.filePaths.map(convertFilePathToVitepressPath)
+        this.cache.vitepressPaths = this.original.filePaths.map(filePath => convertFilePathToVitepressPath(this.original.directoryPath, filePath))
         this.cache.obsidianInternalLinks = extractAllObsidianInternalLinks(this.original.fileItems)
 
         this.cache.linkMap = getObsidianToVitepressInternalLinkMap(
@@ -36,7 +36,7 @@ class Lavencha {
         this.backupOriginalFiles();
 
         const newFileItems = this.original.fileItems.map((file) => {
-            const path = convertFilePathToVitepressPath(file.path);
+            const path = convertFilePathToVitepressPath(this.original.directoryPath, file.path);
             const replacedFileContent = replaceInternalLinks(file.content, this.cache.linkMap);
 
             return {

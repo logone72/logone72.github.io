@@ -41,8 +41,8 @@ const readFiles = (paths) => {
     return paths.map(mapper)
 }
 
-const convertFilePathToVitepressPath = (filePath) => {
-    return replaceFilePathSpaces(filePath.replace(config.originalDirectoryPath, ''))
+const convertFilePathToVitepressPath = (basePath = config.originalDirectoryPath, filePath) => {
+    return replaceFilePathSpaces(filePath.replace(basePath, ''))
 }
 
 const getObsidianToVitepressInternalLinkMap = (obsidianInternalLinks, paths) => {

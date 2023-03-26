@@ -1,4 +1,6 @@
 docs/.vitepress/dist
 docs/.vitepress/cache
 .idea
+.idea/codeStyles
 node_modules
+backup

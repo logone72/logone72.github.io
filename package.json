@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "logone72 github pages package manager",
   "main": "index.js",
+  "type": "module",
   "repository": "https://github.com/logone72/logone72.github.io.git",
   "author": "logan <logan@teamo2.kr>",
   "license": "MIT",
@@ -13,7 +14,8 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "test": "node public/ObsidianToVitepress/util/script/test.js"
   },
   "dependencies": {
     "fs-extra": "11.1.1"
