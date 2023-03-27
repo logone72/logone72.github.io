@@ -129,4 +129,5 @@ export {
     convertFilePathToVitepressPath,
     getObsidianToVitepressInternalLinkMap,
     replaceInternalLinks,
+    replaceFilePathSpaces,
 }

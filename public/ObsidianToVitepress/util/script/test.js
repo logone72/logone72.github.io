@@ -1,5 +1,7 @@
 import {config} from "../constraint.js";
 import Lavencha from "../lavencha.js";
+import createSidebarConfig from "../sidebar.js";
+import fs from "fs";
 
 const tc = (str, title = '') => {
     console.log(`/--------${title}------/ start`)
@@ -8,13 +10,18 @@ const tc = (str, title = '') => {
 }
 
 const test = () => {
-    const lavencha = new Lavencha(config.testDirectoryPath)
 
-    tc(lavencha.original)
-    tc(lavencha.cache)
+    const lavencha = new Lavencha(config.originalDirectoryPath)
+
+    // tc(lavencha.original)
+    // tc(lavencha.cache)
 
     lavencha.executeConversion();
-    tc(lavencha.converted)
+    // tc(lavencha.converted)
+
+    const sidebarConfig = createSidebarConfig(config.originalDirectoryPath)
+
+    fs.writeFileSync(`${config.targetDirectoryPath}/.vitepress/sidebarConfig.json`, sidebarConfig);
 }
 
 test();
