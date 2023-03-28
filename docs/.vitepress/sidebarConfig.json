@@ -1,0 +1,106 @@
+[
+  {
+    "text": "개발",
+    "collapsed": false,
+    "items": [
+      {
+        "text": "TIL",
+        "collapsed": false,
+        "items": [
+          {
+            "text": "stacks",
+            "collapsed": true,
+            "items": [
+              {
+                "text": "Access to localhost on different device",
+                "link": "/개발/TIL/stacks/Access-to-localhost-on-different-device"
+              },
+              {
+                "text": "Class extends doesnt hoist",
+                "link": "/개발/TIL/stacks/Class-extends-doesnt-hoist"
+              },
+              {
+                "text": "intellij Editor codeStyle sharing",
+                "link": "/개발/TIL/stacks/intellij-Editor-codeStyle-sharing"
+              },
+              {
+                "text": "paste event",
+                "link": "/개발/TIL/stacks/paste-event"
+              },
+              {
+                "text": "x !== x 가 참인 x가 있다 !?!",
+                "link": "/개발/TIL/stacks/x-!==-x-가-참인-x가-있다-!?!"
+              },
+              {
+                "text": "동기, 비동기",
+                "link": "/개발/TIL/stacks/동기,-비동기"
+              }
+            ]
+          },
+          {
+            "text": "개발 TIL hub",
+            "link": "/개발/TIL/개발-TIL-hub"
+          }
+        ]
+      },
+      {
+        "text": "git",
+        "collapsed": false,
+        "items": [
+          {
+            "text": "git clear all local branches",
+            "link": "/개발/git/git-clear-all-local-branches"
+          },
+          {
+            "text": "git rebase",
+            "link": "/개발/git/git-rebase"
+          }
+        ]
+      },
+      {
+        "text": "정리본",
+        "collapsed": false,
+        "items": [
+          {
+            "text": "OOP",
+            "link": "/개발/정리본/OOP"
+          },
+          {
+            "text": "SOLID",
+            "link": "/개발/정리본/SOLID"
+          },
+          {
+            "text": "qs module",
+            "link": "/개발/정리본/qs-module"
+          },
+          {
+            "text": "공부 로드맵",
+            "link": "/개발/정리본/공부-로드맵"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "자기계발",
+    "collapsed": false,
+    "items": [
+      {
+        "text": "'절박함' 을 이끌어내는 법",
+        "link": "/자기계발/'절박함'-을-이끌어내는-법"
+      },
+      {
+        "text": "금연의 장점",
+        "link": "/자기계발/금연의-장점"
+      },
+      {
+        "text": "넛지 (Nudge) - 무조건 계획을 지키는 방법",
+        "link": "/자기계발/넛지-(Nudge)---무조건-계획을-지키는-방법"
+      },
+      {
+        "text": "미움 받을 용기",
+        "link": "/자기계발/미움-받을-용기"
+      }
+    ]
+  }
+]

@@ -16,7 +16,8 @@
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
     "test": "node public/ObsidianToVitepress/util/script/test.js",
-    "convert": "node public/ObsidianToVitepress/util/script/convert.js"
+    "convert": "node public/ObsidianToVitepress/util/script/convert.js",
+    "create-side": "node public/ObsidianToVitepress/util/script/createSidebarConfig.js"
   },
   "dependencies": {
     "fs-extra": "11.1.1"
