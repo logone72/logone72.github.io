@@ -1,2 +1,14 @@
 docs/.vitepress/dist
 docs/.vitepress/cache
+
+public/obsidian
+
+.idea/*
+.idea/codeStyles
+
+node_modules
+node_modules/
+node_modules/*
+
+backup
+backup/
