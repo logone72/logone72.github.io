@@ -1,5 +1,5 @@
 import fs from "fs";
-import {convertFilePathToVitepressPath, replaceFilePathSpaces} from "./fileConverter.js";
+import {convertFilePathToVitepressPath, convertFilePathToUsableFormat} from "./fileConverter.js";
 
 class SidebarItem {
     text;
@@ -25,7 +25,7 @@ class SidebarLink {
 
 const recursiveAttacker = (path, sidebar = new SidebarItem(), data = {}) => {
     const currentDepth = data.depth + 1;
-    const isCollapsed = currentDepth > 2;
+    const isCollapsed = currentDepth > 1;
 
     const filenames = fs.readdirSync(path, {withFileTypes: true})
 
@@ -36,7 +36,7 @@ const recursiveAttacker = (path, sidebar = new SidebarItem(), data = {}) => {
         const fileName = _file.name.includes('.') ? _file.name.split('.')[0] : _file.name;
 
         const currentPath = `${path}/${_file.name}`
-        const modifiedPath = `${convertFilePathToVitepressPath(data.originalPath, replaceFilePathSpaces(path))}/${replaceFilePathSpaces(fileName)}`
+        const modifiedPath = `${convertFilePathToVitepressPath(data.originalPath, convertFilePathToUsableFormat(path))}/${convertFilePathToUsableFormat(fileName)}`
 
         if (_file.isFile()) {
             sidebar.items.push(new SidebarLink(fileName, modifiedPath))

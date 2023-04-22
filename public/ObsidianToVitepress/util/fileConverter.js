@@ -4,8 +4,8 @@ import fse from 'fs-extra';
 
 import {config, obsidianInternalLinkMatcher,} from "./constraint.js";
 
-const replaceFilePathSpaces = (_filePath = '') => {
-    return _filePath.replaceAll(' ', '-')
+const convertFilePathToUsableFormat = (_filePath = '') => {
+    return _filePath.replaceAll(' ', '-').replaceAll('?', '﹖').replaceAll(/'/g, '"')
 }
 
 /**
@@ -42,7 +42,7 @@ const readFiles = (paths) => {
 }
 
 const convertFilePathToVitepressPath = (basePath = config.originalDirectoryPath, filePath) => {
-    return replaceFilePathSpaces(filePath.replace(basePath, ''))
+    return convertFilePathToUsableFormat(filePath.replace(basePath, ''))
 }
 
 const getObsidianToVitepressInternalLinkMap = (obsidianInternalLinks, paths) => {
@@ -51,7 +51,7 @@ const getObsidianToVitepressInternalLinkMap = (obsidianInternalLinks, paths) => 
     obsidianInternalLinks.forEach(obsidianLink => {
         try {
             const fileName = obsidianLink.replace('[[', '').replace(']]', '');
-            const matchedPath = paths.find(path => path.includes(replaceFilePathSpaces(fileName)));
+            const matchedPath = paths.find(path => path.includes(convertFilePathToUsableFormat(fileName)));
 
             if (!matchedPath || !fileName) {
                 internalLinkMap.set(obsidianLink, '')
@@ -129,5 +129,5 @@ export {
     convertFilePathToVitepressPath,
     getObsidianToVitepressInternalLinkMap,
     replaceInternalLinks,
-    replaceFilePathSpaces,
+    convertFilePathToUsableFormat,
 }

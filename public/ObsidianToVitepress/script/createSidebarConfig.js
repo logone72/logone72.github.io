@@ -1,6 +1,6 @@
 import fs from "fs";
-import {config} from "../constraint.js";
-import createSidebarConfig from "../sidebar.js";
+import {config} from "../util/constraint.js";
+import createSidebarConfig from "../util/sidebar.js";
 
 const run = () => {
     const sidebarConfig = createSidebarConfig(config.originalDirectoryPath);
