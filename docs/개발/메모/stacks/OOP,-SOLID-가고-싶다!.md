@@ -1,6 +1,6 @@
 
-[SOLID](/개발/OOP,-SOLID-가고-싶다!.md)
-[MVC 아키텍쳐](/개발/MVC-아키텍쳐.md)
+[SOLID](/개발/메모/stacks/OOP,-SOLID-가고-싶다!.md)
+[MVC 아키텍쳐](/개발/정리본/MVC-아키텍쳐.md)
 
 
 ## 리액트 스러운

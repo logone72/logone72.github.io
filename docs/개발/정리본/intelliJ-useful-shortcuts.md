@@ -361,5 +361,4 @@
 > -   [https://www.inflearn.com/course/intellij-guide/lecture/13200](https://www.inflearn.com/course/intellij-guide/lecture/13200)
 > -   [이미지 참고](https://www.yasir252.com/software/programming-tools/jetbrains-intellij-full-version/)
 
-![](https://gmlwjd9405.github.io/assets/img/heee.png)
 

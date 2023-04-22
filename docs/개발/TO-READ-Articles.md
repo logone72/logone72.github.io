@@ -1,17 +1,13 @@
 # 목록
 
-```toc
-```
-
-
 ## Front End
 
-## General
+### General
 
-### state of frontend
+#### state of frontend
 [2022 프론트엔드 추세](https://tsh.io/state-of-frontend/#report)
 
-### CORS
+#### CORS
 [CORS 캐슁 하기](https://news.hada.io/topic?id=7453&utm_source=slack&utm_medium=bot&utm_campaign=T07JC381Y)
 1.  CORS 이슈를 안다.
 2.  CORS 이슈 해결방법을 안다.
@@ -21,26 +17,26 @@
 
 이 과정 중요…
 
-### SSR
+#### SSR
 어서 와, SSR은 처음이지? - 도입 편 (by naver)
 https://d2.naver.com/helloworld/7804182
 
 
-### Obsidian
+#### Obsidian
 
 https://cho.sh/
+obsidian으로 블로그를 만든 훌륭한 예시
 
+#### Pattern
 
-### Pattern
-
-#### 싱글톤 패턴
+**싱글톤 패턴**
 https://refactoring.guru/ko/design-patterns/singleton
 
 
 ### React
 ___
 #### React에 solid 원칙 적용하기
-[링크](https://velog.io/@dev_boku/%EB%B2%88%EC%97%AD-React%EC%97%90-SOLID-%EC%9B%90%EC%B9%99-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0)
+[링크](https://dev-boku.tistory.com/entry/%EB%B2%88%EC%97%AD-React%EC%97%90-SOLID-%EC%9B%90%EC%B9%99-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0)
 
 #### 효율적인 modal 관리 with React(1)
 https://nakta.dev/how-to-manage-modals-1
@@ -106,6 +102,11 @@ https://www.slideshare.net/ibare/ss-39274621
 #### Css-in-js, 무엇이 다른가요?
 https://so-so.dev/web/css-in-js-whats-the-defference/
 
+#### CSS 박스 모델과 box-sizing 속성
+
+자식에게 width 100%와 padding을 함께 주었을때 부모의 너비를 초과해버리는 (_width: 100%면 부모의 너비 만큼 사용한데매!_) 비관적인 css 세상의 해독제 같은 글
+
+https://www.daleseo.com/css-box-model/
 
 
 ## Project
