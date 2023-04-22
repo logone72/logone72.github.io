@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,N as l}from"./chunks/framework.820fbdb1.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"개발/정리본/how-to-lazy-load-in-JS.md"}'),o={name:"개발/정리본/how-to-lazy-load-in-JS.md"},p=l("",2),e=[p];function t(c,r,F,y,D,A){return a(),n("div",null,e)}const d=s(o,[["render",t]]);export{i as __pageData,d as default};
