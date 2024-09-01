@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as a,N as s}from"./chunks/framework.67628f14.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"개발/메모/stacks/아이디어.md"}'),c={name:"개발/메모/stacks/아이디어.md"},o=s("",7),_=[o];function r(p,l,n,i,u,d){return a(),e("div",null,_)}const g=t(c,[["render",r]]);export{f as __pageData,g as default};
