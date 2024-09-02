@@ -69,6 +69,7 @@ VitePress는 기본 theme이 기술 문서에 최적화 되어 있기에 이미 
 
 ### VitePress 구성
 
-[vitepress-sidebar](https://github.com/jooy2/vitepress-sidebar?tab=readme-ov-file)로 deploy 시 마다 VitePress sidebar config를 자동으로 생성 할 수 있게 합니다.
+[VitePress 공식 문서](https://vitepress.dev/guide/deploy#github-pages)를 참고해서 github pages를 위한 repository를 구성하면 됩니다.
 
+추가로 [vitepress-sidebar](https://github.com/jooy2/vitepress-sidebar?tab=readme-ov-file)로 deploy 시 마다 VitePress sidebar config를 자동으로 생성 할 수 있게 합니다.
 
