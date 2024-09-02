@@ -1,7 +1,9 @@
 
-이 블로그는 로컬에서 사용하는 옵시디언이라고 하는 마크다운 에디터에서 작성한 내용이 자동으로 배포까지 되고 있습니다. 한 명의 개발자로서 개인 학습, 실무 개발 등을 통해 얻어 온 것을 쉽고 간편하게 공유하기 위한 결과물입니다. 
+![](https://obsidian.md/images/screenshot-1.0-hero-combo.png)
 
-이 글에서는 왜 옵시디언을 기반으로 vitepress로 만들어지는 블로그를 구성하게 된 이유와 방법까지 이야기해보려고 합니다!
+이 블로그는 로컬에서 사용하는 [옵시디언](https://obsidian.md/)이라고 하는 마크다운 에디터에서 작성한 내용이 자동으로 배포까지 되고 있습니다. 한 명의 개발자로서 개인 학습, 실무 개발 등을 통해 얻어 온 것을 쉽고 간편하게 공유하기 위한 결과물입니다. 
+
+이 글에서는 왜 옵시디언을 기반으로 [VitePress](https://vitepress.dev/)로 만들어지는 블로그를 구성하게 된 이유와 방법까지 이야기해보려고 합니다!
 
 ## 옵시디언?
 
@@ -46,13 +48,15 @@ obsidian에서는 publish 서비스를 제공하고 있습니다. 하지만 *유
 
 > obsidian-git를 통해 repository에 push 될 때마다 정적 사이트 생성기와 github actions를 사용하면 됐습니다.
 
-그리고 정적 사이트 생성기로 vitepress를 선택했습니다.
+그리고 정적 사이트 생성기로 VitePress를 선택했습니다.
 
-### Vitepress!
+### VitePress!
 
-jekyll등의 정적 사이트 생성기 대신 vitepress를 선택한 이유는 간단합니다. 기본 theme이 옵시디언과 거의 유사합니다. 옵시디언이 좋아서 옵시디언으로 블로그까지 하고 싶은데 마침 옵시디언과 거의 동일한 theme을 기본으로 만들어진 정적 사이트 생성기라니, 이 이상의 것을 찾을 필요성을 느끼지 못했습니다. 
+jekyll등의 정적 사이트 생성기 대신 VitePress를 선택한 이유는 간단합니다. 기본 theme이 옵시디언과 거의 유사합니다. 옵시디언이 좋아서 옵시디언으로 블로그까지 하고 싶은데 마침 옵시디언과 거의 동일한 theme을 기본으로 만들어진 정적 사이트 생성기라니, 이 이상의 것을 찾을 필요성을 느끼지 못했습니다. 
 
 처음부터 사이드바 | 콘텐츠 | ToC 로 구성되어 있기에 커스터마이징을 해야하는 부분이 적어서 접근성이 좋았습니다.
+
+VitePress는 기본 theme이 기술 문서에 최적화 되어 있기에 이미 [Vite](https://vitejs.dev/), [Rollup](https://rollupjs.org/), [Pinia](https://pinia.vuejs.org/), [VueUse](https://vueuse.org/), [Vitest](https://vitest.dev/), [D3](https://d3js.org/), [UnoCSS](https://unocss.dev/), [Iconify](https://iconify.design/)등의 다양한 개발 문서 사이트를 생성하는데 사용되고 있습니다.
 
 ## How to?
 
@@ -63,8 +67,8 @@ jekyll등의 정적 사이트 생성기 대신 vitepress를 선택한 이유는 
 [obsidian git](https://github.com/Vinzent03/obsidian-git)을 통해 github pages를 위한 repository로 자동으로 배포합니다.
 [obsidian-link-convert (LInk converter)](https://github.com/ozntel/obsidian-link-converter/tree/maina)로 옵시디언의 wiki link 방식의 link들을 vitepress 라우팅에 맞는 markdown link 에 path는 absolute하게 컨버팅합니다.
 
-### Vitepress 구성
+### VitePress 구성
 
-[vitepress-sidebar](https://github.com/jooy2/vitepress-sidebar?tab=readme-ov-file)로 자동으로 deploy 시 마다 vitepress sidebar config를 생성 할 수 있게 합니다.
+[vitepress-sidebar](https://github.com/jooy2/vitepress-sidebar?tab=readme-ov-file)로 deploy 시 마다 VitePress sidebar config를 자동으로 생성 할 수 있게 합니다.
 
 
