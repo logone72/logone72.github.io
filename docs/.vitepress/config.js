@@ -1,17 +1,24 @@
-import sidebarConfig from './sidebarConfig.json'
+import { generateSidebar } from "vitepress-sidebar";
+import { defineConfig } from "vitepress";
+import { name, description, repository } from "../../package.json";
 
-export default {
-    title: 'logone72 blog',
-    description: 'frontend developer logone72 blog',
-    head: [
-      ['meta', {name: 'google-site-verification', content: 'f5b8urfLVM-IRsORykWqUAMVws-ISJnIYUiFhZDF1rU'}]
+export default defineConfig({
+  title: name,
+  description,
+  srcDir: "../posts",
+  head: [
+    [
+      "meta",
+      {
+        name: "google-site-verification",
+        content: "f5b8urfLVM-IRsORykWqUAMVws-ISJnIYUiFhZDF1rU",
+      },
     ],
+  ],
 
-    themeConfig: {
-        nav: [
-            {text: 'Home', link: '/'},
-            {text: 'Github', link: 'https://github.com/logone72/logone72.github.io'},
-        ],
-        sidebar: sidebarConfig,
-    },
-}
+  themeConfig: {
+    nav: [{ text: "Home", link: "/" }],
+    socialLinks: [{ icon: "github", link: repository }],
+    sidebar: generateSidebar({ documentRootPath: "posts" }),
+  },
+});
