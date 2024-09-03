@@ -36,7 +36,7 @@
 1. obsidian-git 플러그인을 사용해 github를 통해 간편하게 여러 기기에서 공유가 됩니다.
 2. 로컬에서 인터넷 연결 없이 구동되기에 딜레이 없이 빠르게 메모를 할 수 있습니다.
 3. 로컬 파일들을 폴더 단위로 관리하는 방식이고, 옵시디언의 사이드바에서 이를 한 눈에 보고 쉽게 폴더를 변경해서 분류할 수 있습니다.
-4. 플러그인을 통해 다양한 기능을 추가할 수 있을 뿐, 순정은 심플 그 자체입니다.
+4. 플러그인을 통해 다양한 기능을 추가할 수 있을 뿐, 순정은 심플 그 자체입니다. 이를 통해 기록을 작성하는 것에 대한 심리적 장벽을 낮추어 더욱 자주 많이 기록 할 수 있었습니다.
 
 
 ### 개발자 블로그를 옵시디언으로 할 수 없을까?
@@ -58,7 +58,7 @@ jekyll등의 정적 사이트 생성기 대신 VitePress를 선택한 이유는 
 
 처음부터 사이드바 | 콘텐츠 | ToC 로 구성되어 있기에 커스터마이징을 해야하는 부분이 적어서 접근성이 좋았습니다.
 
-VitePress는 기본 theme이 기술 문서에 최적화 되어 있기에 이미 [Vite](https://vitejs.dev/), [Rollup](https://rollupjs.org/), [Pinia](https://pinia.vuejs.org/), [VueUse](https://vueuse.org/), [Vitest](https://vitest.dev/), [D3](https://d3js.org/), [UnoCSS](https://unocss.dev/), [Iconify](https://iconify.design/)등의 다양한 개발 문서 사이트를 생성하는데 사용되고 있습니다.
+VitePress는 기본 theme이 기술 문서에 최적화 되어 있기에 이미 [Vite](https://vitejs.dev/), [Rollup](https://rollupjs.org/), [Pinia](https://pinia.vuejs.org/), [VueUse](https://vueuse.org/), [Vitest](https://vitest.dev/), [D3](https://d3js.org/), [UnoCSS](https://unocss.dev/), [Iconify](https://iconify.design/)등의 다양한 공식 문서 사이트를 생성하는데 사용되고 있습니다.
 
 ## How to?
 
