@@ -22,6 +22,13 @@ export default defineConfig({
       gtag('js', new Date());
       gtag('config', 'G-BG56ZW302R');`,
     ],
+    [
+      "meta",
+      {
+        name: "naver-site-verification",
+        content: '{content}',
+      },
+    ],
   ],
   sitemap: {
     hostname: "https://logone72.github.io",
