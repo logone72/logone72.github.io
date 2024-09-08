@@ -6,6 +6,7 @@ export default defineConfig({
   title: name,
   description,
   srcDir: "../posts",
+
   head: [
     [
       "meta",
@@ -15,10 +16,12 @@ export default defineConfig({
       },
     ],
   ],
-
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
     socialLinks: [{ icon: "github", link: repository }],
     sidebar: generateSidebar({ documentRootPath: "posts" }),
+  },
+  rewrites: {
+    "": "블로그/obsidian으로%20작성하는%20vitepress%20블로그",
   },
 });

@@ -1,11 +1,10 @@
 {
-  "name": "logone72-dev-blog",
+  "name": "logone72",
   "version": "1.0.1",
-  "description": "logone72 dev blog",
-  "main": "index.js",
+  "description": "logone72's dev blog",
   "type": "module",
   "repository": "https://github.com/logone72/logone72.github.io.git",
-  "author": "logan <logan@teamo2.kr>",
+  "author": "Roegan Kim <roegan.kim@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.9.1",
