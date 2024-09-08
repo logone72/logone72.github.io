@@ -26,7 +26,7 @@ export default defineConfig({
       "meta",
       {
         name: "naver-site-verification",
-        content: "67ff08576a160f454495df90f7f4021201a0b4da",
+        content: '',
       },
     ],
   ],
