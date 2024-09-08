@@ -1,3 +1,6 @@
+---
+disableComments: true
+---
 
 ![](https://obsidian.md/images/screenshot-1.0-hero-combo.png)
 
