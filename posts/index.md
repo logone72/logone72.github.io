@@ -1,6 +1,3 @@
----
-disableComments: true
----
 
 ![](https://obsidian.md/images/screenshot-1.0-hero-combo.png)
 
@@ -30,7 +27,7 @@ disableComments: true
 1. 여러 디바이스에서 작성한 기록들이 공유된다.
 2. 빠르게 기록을 할 수 있고, 쉽게 수정할 수 있다.
 3. 필요에 따라서 쉽게 기록들을 분류할 수 있다. 
-4. 기능이 단순하다.
+4. 기능이 단순하면서도, 필요한만큼 추가 할 수 있다.
 
 기존에는 1번이 중요하다 생각해서 노션, 블로그 등을 사용했으나, 2, 3, 4번 목적에는 적합하지 않았습니다.
 
@@ -48,7 +45,7 @@ disableComments: true
 
 하지만 단순히 로컬 옵시디언에서 작성한 내용을 블로그에 복사 붙여넣기로 포스팅하는 방식은 여전히 내용을 갱신해야할 때 적합하지 않았습니다. 저는 **로컬 옵시디언에서 글을 작성하거나 수정하면, 추가 절차 없이 바로 블로그에 포스팅 되는 것을 원했습니다.**
 
-obsidian에서는 publish 서비스를 제공하고 있습니다. 하지만 *유료입니다.* 한 명의 개발자로서 이렇게 확장성이 좋은 에디터를 사용하면서 유료 구독 서비스를 사용하는 것은 손해 같았습니다...
+obsidian에서는 publish 서비스를 제공하고 있습니다. 하지만 *유료입니다.* 한 명의 개발자로서 이렇게 확장성이 좋은 에디터를 사용하면서 유료 구독 서비스를 사용하는 것은 옳지 않게 느껴졌습니다...
 
 이때 공유를 위해 사용하고 있던 obsidian-git를 통해 가능성을 느끼고 조사를 시작했고 방법을 찾았습니다.
 
@@ -57,11 +54,9 @@ obsidian-git를 통해 repository에 push 될 때마다 정적 사이트 생성�
 
 ### VitePress!
 
-jekyll등의 정적 사이트 생성기 대신 VitePress를 선택한 이유는 간단합니다. 기본 theme이 옵시디언과 거의 유사합니다. 옵시디언이 좋아서 옵시디언으로 블로그까지 하고 싶은데 마침 옵시디언과 거의 동일한 theme을 기본으로 만들어진 정적 사이트 생성기라니, 이 이상의 것을 찾을 필요성을 느끼지 못했습니다. 
+Jekyll 등의 다른 정적 사이트 생성기 대신 VitePress를 선택한 이유는 간단합니다. 기본 테마가 제가 선호하는 옵시디언과 매우 유사하기 때문입니다. 옵시디언 스타일의 블로그를 운영하고 싶었는데, VitePress는 이를 기본으로 제공하여 더 이상 다른 옵션을 찾을 필요성을 느끼지 않았습니다.
 
-처음부터 사이드바 | 콘텐츠 | ToC 로 구성되어 있기에 커스터마이징을 해야하는 부분이 적어서 접근성이 좋았습니다.
-
-VitePress는 기본 theme이 기술 문서에 최적화 되어 있기에 이미 [Vite](https://vitejs.dev/), [Rollup](https://rollupjs.org/), [Pinia](https://pinia.vuejs.org/), [VueUse](https://vueuse.org/), [Vitest](https://vitest.dev/), [D3](https://d3js.org/), [UnoCSS](https://unocss.dev/), [Iconify](https://iconify.design/)등의 다양한 공식 문서 사이트를 생성하는데 사용되고 있습니다.
+또한, VitePress는 기본적으로 사이드바 | 콘텐츠 | ToC 형식으로 구성되어 있어 커스터마이징할 부분이 적어 접근성이 뛰어납니다. 특히, 기본 테마가 기술 문서에 최적화되어 있어 [Vite](https://vitejs.dev/), [Rollup](https://rollupjs.org/), [Pinia](https://pinia.vuejs.org/), [VueUse](https://vueuse.org/), [Vitest](https://vitest.dev/), [D3](https://d3js.org/), [UnoCSS](https://unocss.dev/), [Iconify](https://iconify.design/)등 다양한 공식 문서 사이트 제작에 이미 널리 사용되고 있습니다.
 
 ## How to?
 
