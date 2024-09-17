@@ -36,7 +36,10 @@ export default defineConfig({
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
     socialLinks: [{ icon: "github", link: repository }],
-    sidebar: generateSidebar({ documentRootPath: "posts" }),
+    sidebar: generateSidebar({
+      documentRootPath: "posts",
+      underscoreToSpace: true,
+    }),
     search: {
       provider: "local",
     },
