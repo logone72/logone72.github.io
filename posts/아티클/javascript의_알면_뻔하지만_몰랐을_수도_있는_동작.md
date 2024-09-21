@@ -103,6 +103,14 @@ NaN !== NaN // true
 
 즉, `NaN`은 어떤 값과 비교해도 항상 `false`를 반환하므로, `NaN !== NaN` 역시 `true`가 된다. 따라서, javascript에서 `x !== x`가 `true`로 평가되는 특별한 경우는 바로 `NaN`일 때이다. 이로 인해 `x !== x`가 true인 흥미로운 결과를 얻게 된다.
 
+마지막으로, NaN을 NaN과 일치하는지 비교를 할 때 true 가 반환되는 방법을 소개한다.
+
+```js
+Object.is(NaN, NaN) // true
+```
+
+`Object.is()`가 `==` , `===` 와 다른 점 중 하나이다. `Object.is()`는 `==`처럼 여러 강제가 있지도 않고,  `===`와 다르게 NaN 을 동일하게 비교한다.
+
 ## 자료 출처
 
 https://stackoverflow.com/questions/62717437/behavior-of-greater-than-and-another-inequality-comparison-operators-on-arra
@@ -110,3 +118,4 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block
 https://en.wikipedia.org/wiki/NaN
 https://en.wikipedia.org/wiki/IEEE_754
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/is
