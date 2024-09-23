@@ -29,11 +29,13 @@ export default defineConfig({
         content: "67ff08576a160f454495df90f7f4021201a0b4da",
       },
     ],
+    ["link", { rel: "icon", href: "/favicon.ico" }],
   ],
   sitemap: {
     hostname: "https://logone72.github.io",
   },
   themeConfig: {
+    logo: "/icons8-dev-30.png",
     nav: [{ text: "Home", link: "/" }],
     socialLinks: [{ icon: "github", link: repository }],
     sidebar: generateSidebar({
