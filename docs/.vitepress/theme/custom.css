@@ -1,0 +1,20 @@
+
+.vp-doc h2 {
+  padding-top: 36px;
+  font-size: 28px;
+}
+
+.vp-doc h3 {
+  margin: 48px 0 0;
+  font-size: 22px;
+}
+
+.vp-doc h4 {
+  margin: 28px 0 0;
+  font-size: 18px;
+}
+
+.vp-doc p,
+.vp-doc summary {
+  margin: 28px 0;
+}
