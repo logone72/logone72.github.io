@@ -1,6 +1,6 @@
 # logone72.github.io
 
-vitepress powered dev blog by logone72
+A developer blog by Logone72, powered by [VitePress](https://vitepress.dev/).
 
 ## link
 
