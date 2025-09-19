@@ -1,22 +1,39 @@
 {
-  "name": "logone72",
+  "name": "logone72_dev_blog",
   "version": "1.0.1",
-  "description": "logone72's dev blog",
+  "description": "frontend developer logone72's blog",
   "type": "module",
   "repository": "https://github.com/logone72/logone72.github.io.git",
   "author": "Roegan Kim <roegan.kim@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "@eslint/js": "^9.9.1",
-    "eslint": "^9.9.1",
-    "globals": "^15.9.0",
-    "vitepress": "^1.3.4",
-    "vitepress-sidebar": "^1.25.0",
-    "vue": "^3.2.45"
+  "keywords": [
+    "blog",
+    "development",
+    "vitepress",
+    "vue"
+  ],
+  "homepage": "https://logone72.github.io",
+  "bugs": {
+    "url": "https://github.com/logone72/logone72.github.io/issues"
   },
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs"
+  },
+  "contributors": [
+    "Roegan Kim <roegan.kim@gmail.com>"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0",
+    "prettier": "3.4.2",
+    "vitepress": "^1.5.0",
+    "vitepress-sidebar": "^1.30.2",
+    "vue": "^3.2.45"
   }
 }

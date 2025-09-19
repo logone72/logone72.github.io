@@ -10,8 +10,8 @@ https://logone72.github.io/
 ## command 
 
 ```
-yarn dev
-yarn build
-yarn preview
+npm run dev
+npm run build
+npm run preview
 ```
 
