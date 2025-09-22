@@ -4,6 +4,7 @@ import { name, description, repository } from '../../package.json';
 
 export default defineConfig({
   title: name,
+  titleTemplate: '기술 블로그',
   description,
   srcDir: '../posts',
   head: [
