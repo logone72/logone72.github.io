@@ -137,14 +137,9 @@ Object.is(NaN, NaN) // true
 
 ## 자료 출처
 
-https://stackoverflow.com/questions/62717437/behavior-of-greater-than-and-another-inequality-comparison-operators-on-arra
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block
-
-https://en.wikipedia.org/wiki/NaN
-
-https://en.wikipedia.org/wiki/IEEE_754
-
-https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+- [stackoverflow - Behavior of "Greater than" (and another inequality comparison operators) on arrays](https://stackoverflow.com/questions/62717437/behavior-of-greater-than-and-another-inequality-comparison-operators-on-arra))
+- [MDN - Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+- [MDN - try...catch # The finally block](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block)
+- [wikipedia - NaN](https://en.wikipedia.org/wiki/NaN)
+- [wikipedia - IEEE 754](https://en.wikipedia.org/wiki/IEEE_754)
+- [MDN - Object.is()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
