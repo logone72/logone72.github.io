@@ -19,9 +19,10 @@ jobs:
         with:
           node-version: 22.x
           cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install
-        run: npm ci
+        run: npm ci --no-audit --no-fund
 
       - name: Build
         run: npm run build
