@@ -7,8 +7,6 @@ CSS(Cascading Style Sheet)는 웹 페이지의 스타일을 결정하는 필수�
 
 이 아티클에서는 **CSS 적용 우선순위**를 결정짓는 **캐스케이드(Cascading)** 와 **명시도(Specificity)** 개념을 단계별로 정확하게 이해하고 적용할 수 있도록 정리해보았습니다.
 
----
-
 ## 1. CSS의 캐스케이딩(Cascading)이란?
 
 ![](https://cdn.britannica.com/66/123766-050-9C662576/Dark-Hollow-Falls-Shenandoah-National-Park-Virginia.jpg)
@@ -23,13 +21,13 @@ CSS(Cascading Style Sheet)는 웹 페이지의 스타일을 결정하는 필수�
 - **범위(Scoping)** (DOM 요소 간 거리)
 - **선언 순서(Order)** (코드 내 선언 순서)
 
-> *OISSO*, 이리 오이소~
-
----
+> *OISSO*, 오이소~
 
 ## 2. CSS 적용 우선순위 단계별 정리
 
 CSS 규칙이 충돌하면 다음과 같은 우선순위를 따라 스타일이 적용됩니다.
+
+---
 
 ### 📍 단계 1: 출처(Origin)와 중요도(!important)
 
@@ -85,7 +83,6 @@ button { color: green; }
 
 > ⚠️ **주의**:  
 > `!important` 사용은 유지보수를 어렵게 만들 수 있으므로 꼭 필요한 경우에만 신중히 사용하는 것이 좋습니다.
-
 
 ---
 
@@ -190,8 +187,6 @@ div { color: green; }
 .button { color: blue; } /* 최종 적용 */
 ```
 
----
-
 ## 📌 **한눈에 보는 CSS 우선순위**
 
 최종적으로 CSS 스타일 적용 순서를 정리하면 아래와 같습니다:
@@ -203,8 +198,6 @@ div { color: green; }
 이 순서를 명확히 이해하면 복잡한 CSS 스타일 규칙 사이에서 혼동 없이 원하는 스타일을 정확하게 적용할 수 있습니다.
 
 CSS의 캐스케이드와 명시도를 잘 활용하여, 유지보수가 쉽고 확장 가능한 웹사이트를 개발해 보세요!
-
----
 
 ## 📚 추가 팁: CSS 디버깅 팁
 
@@ -225,10 +218,7 @@ CSS의 캐스케이드와 명시도를 잘 활용하여, 유지보수가 쉽고 
 ![](https://developer.chrome.com/static/docs/devtools/css/reference/image/the-tooltip-specificity-e28a5e9a4b32_1920.png?hl=ko)
 선택자 위로 마우스를 가져가면 명시도 가중치가 포함된 도움말이 표시됩니다. 이를 통해, 어떤 스타일이 왜 적용되었는지 더욱 정확하게 파악할 수 있습니다.
 
-
 이외에도 여러가지 CSS 관련 기능들이 있습니다. 자세한 내용은 [링크](https://developer.chrome.com/docs/devtools/css/reference?hl=ko)를 참고해주세요.
-
----
 
 ## 참고 자료 출처:
 
