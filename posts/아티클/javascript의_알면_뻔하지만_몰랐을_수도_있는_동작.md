@@ -1,4 +1,4 @@
-# javascript의 알면 뻔하지만 몰랐을 수도 있는 동작
+# javascript의 알면 뻔하지만 몰랐을 수도 있는 동작들
 
 ![](https://velog.velcdn.com/images/mayo3610/post/2a3d6e54-562b-4775-979b-e4abf4301282/image.jpeg)
 
