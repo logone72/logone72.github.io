@@ -1,7 +1,7 @@
 
 # CSS 적용 우선순위 완벽 정리: Cascading과 Specificity
 
-<img src="https://i.namu.wiki/i/l_Ezbv-2k2FnnYTjWPpuVaJNA-ep6eC-VmVDE0nrJUp8nkY1EWJufaDWB5cXF15991tWDI6v8uMFiPY6FFoy7lnhZRkQ3DuASCLLgorDoiyykQuV36S3KKjcn1bav9Grs_rzWw7Qjs5-G1rKWxJwbw.svg" width="250px" alt="CSS 로고">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/726px-CSS3_logo_and_wordmark.svg.png" style="width: 148px;margin: 48px auto;" alt="CSS 로고">
 
 CSS(Cascading Style Sheet)는 웹 페이지의 스타일을 결정하는 필수적인 언어입니다. 그러나 복잡한 스타일 규칙 사이에서 어떤 스타일이 최종적으로 적용될지 혼란스러울 때가 많습니다. 
 
