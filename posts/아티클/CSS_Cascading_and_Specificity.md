@@ -1,4 +1,9 @@
 
+---
+description: CSS 캐스케이딩과 명시도 개념을 통해 스타일 적용 우선순위를 완벽하게 이해하고, 복잡한 CSS 규칙 충돌을 해결하는 방법을 배워보세요.
+titleTemplate: logone72
+---
+
 # CSS 적용 우선순위 완벽 정리: Cascading과 Specificity
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/726px-CSS3_logo_and_wordmark.svg.png" style="width: 148px;margin: 48px auto;" alt="CSS 로고">

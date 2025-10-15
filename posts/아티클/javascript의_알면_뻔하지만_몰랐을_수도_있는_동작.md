@@ -1,3 +1,8 @@
+---
+description: JavaScript의 배열 비교, finally vs return, NaN 비교 등 알아두면 유용하지만 쉽게 놓칠 수 있는 JavaScript의 특별한 동작들을 살펴봅니다.
+titleTemplate: logone72
+---
+
 # javascript의 알면 뻔하지만 몰랐을 수도 있는 동작들
 
 ![](https://velog.velcdn.com/images/mayo3610/post/2a3d6e54-562b-4775-979b-e4abf4301282/image.jpeg)

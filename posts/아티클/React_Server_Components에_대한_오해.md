@@ -1,3 +1,8 @@
+---
+description: React Server Components(RSC)가 풀스택 프레임워크가 아닌 렌더링 모델임을 이해하고, React 19와 Next.js App Router의 관계를 명확히 알아봅니다.
+titleTemplate: logone72
+---
+
 # React Server Components에 대한 오해
 
 ![](https://res.cloudinary.com/ddxwdqwkr/image/upload/f_auto/v1617437062/patterns.dev/reactServerComponents.png)

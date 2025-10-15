@@ -1,3 +1,8 @@
+---
+description: Obsidian 마크다운 에디터와 VitePress를 연동하여 로컬에서 작성한 글이 자동으로 블로그에 배포되는 시스템을 구축하는 방법을 소개합니다.
+titleTemplate: logone72
+---
+
 # obsidian으로 작성하는 VitePress 블로그
 
 ![](https://obsidian.md/images/screenshot-1.0-hero-combo.png)
