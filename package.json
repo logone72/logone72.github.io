@@ -5,7 +5,6 @@
   "type": "module",
   "repository": "https://github.com/logone72/logone72.github.io.git",
   "author": "Roegan Kim <roegan.kim@gmail.com>",
-  "license": "MIT",
   "keywords": [
     "blog",
     "development",
@@ -32,6 +31,7 @@
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
     "prettier": "3.4.2",
+    "typescript": "^5.9.3",
     "vitepress": "^2.0.0-alpha.12",
     "vitepress-sidebar": "^1.33.0",
     "vue": "^3.2.45"
