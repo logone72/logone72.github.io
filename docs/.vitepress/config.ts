@@ -1,15 +1,14 @@
-import { generateSidebar, withSidebar } from 'vitepress-sidebar';
+import { withSidebar } from 'vitepress-sidebar';
 import { defineConfig } from 'vitepress';
-import { name, description, repository } from '../../package.json';
+import { repository } from '../../package.json';
 
 const documentRootPath = 'posts';
 
 export default defineConfig(
   withSidebar(
     {
-      title: name,
-      titleTemplate: '기술 블로그',
-      description,
+      title: 'logone72',
+      description: '프론트엔드 개발자 logone72 입니다.',
       srcDir: `../${documentRootPath}`,
       head: [
         [
@@ -37,6 +36,7 @@ export default defineConfig(
         ],
         ['link', { rel: 'icon', href: '/favicon.ico' }],
       ],
+      lang: 'ko-KR',
       sitemap: {
         hostname: 'https://logone72.github.io',
       },
