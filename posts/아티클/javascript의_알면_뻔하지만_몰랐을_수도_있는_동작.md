@@ -140,9 +140,9 @@ Object.is(NaN, NaN) // true
 위에서 설명한 내용이 `Object.is()`가 `==` , `===` 와 다른 점 중 하나입니다. `Object.is()`는 `==`처럼 여러 강제가 있지도 않고,  `===`와 다르게 `NaN` 을 동일하게 비교합니다.
 
 
-## 자료 출처
+## 출처 및 참조
 
-- [stackoverflow - Behavior of "Greater than" (and another inequality comparison operators) on arrays](https://stackoverflow.com/questions/62717437/behavior-of-greater-than-and-another-inequality-comparison-operators-on-arra))
+- [stackoverflow - Behavior of "Greater than" (and another inequality comparison operators) on arrays](https://stackoverflow.com/questions/62717437/behavior-of-greater-than-and-another-inequality-comparison-operators-on-arra)
 - [MDN - Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 - [MDN - try...catch # The finally block](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_block)
 - [wikipedia - NaN](https://en.wikipedia.org/wiki/NaN)

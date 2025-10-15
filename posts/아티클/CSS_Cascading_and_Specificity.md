@@ -225,7 +225,7 @@ CSS의 캐스케이드와 명시도를 잘 활용하여, 유지보수가 쉽고 
 
 이외에도 여러가지 CSS 관련 기능들이 있습니다. 자세한 내용은 [링크](https://developer.chrome.com/docs/devtools/css/reference?hl=ko)를 참고해주세요.
 
-## 참고 자료 출처:
+## 출처 및 참조
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade
 - https://developer.mozilla.org/ko/docs/Web/CSS/CSS_cascade/Specificity
