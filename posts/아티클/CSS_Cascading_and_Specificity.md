@@ -1,4 +1,3 @@
-
 ---
 description: CSS 캐스케이딩과 명시도 개념을 통해 스타일 적용 우선순위를 완벽하게 이해하고, 복잡한 CSS 규칙 충돌을 해결하는 방법을 배워보세요.
 titleTemplate: logone72
