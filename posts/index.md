@@ -4,7 +4,7 @@ layout: home
 hero:
   name: logone72
   text: 프론트엔드 개발자
-  tagline: 더 단순하고 더 나은 방식을 고민합니다
+  tagline: 더 쉽고 더 나은 방식을 고민합니다
   image:
     src: /vitepress-logo-large.svg
     alt: VitePress
