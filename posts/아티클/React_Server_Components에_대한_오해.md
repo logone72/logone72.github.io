@@ -188,3 +188,8 @@ Next.js는 이제 React의 정식 런타임 위에서 작동하며, 다른 프�
 - https://react.dev/reference/rsc/server-components
 - https://react.dev/reference/rsc/server-functions
 - https://www.joshwcomeau.com/react/server-components
+
+## 추천 연관 아티클
+
+- [React 서버 컴포넌트 작동원리를 아주 쉽게 알아보자 - 정백경](https://blog.kmong.com/react-server-component%EB%A1%9C-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%98%81%EC%8B%A0%ED%95%98%EA%B8%B0-part-2-5cf0bf4416b0)
+  - RSC 작동 원리를 아주 쉽고 재밌게 설명해주는 아티클입니다. 
