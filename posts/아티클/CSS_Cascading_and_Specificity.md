@@ -7,13 +7,13 @@ titleTemplate: logone72
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/726px-CSS3_logo_and_wordmark.svg.png" style="width: 148px;margin: 48px auto;" alt="CSS 로고">
 
-CSS(Cascading Style Sheet)는 웹 페이지의 스타일을 결정하는 필수적인 언어입니다. 그러나 복잡한 스타일 규칙 사이에서 어떤 스타일이 최종적으로 적용될지 혼란스러울 때가 많습니다. 
+CSS(Cascading Style Sheet)는 웹 페이지의 스타일을 결정하는 필수적인 언어입니다. 그러나 복잡한 스타일 규칙 사이에서 어떤 스타일이 최종적으로 적용될지 혼란스러울 때가 많습니다.
 
 이 아티클에서는 **CSS 적용 우선순위**를 결정짓는 **캐스케이드(Cascading)** 와 **명시도(Specificity)** 개념을 단계별로 정확하게 이해하고 적용할 수 있도록 정리해보았습니다.
 
 ## 1. CSS의 캐스케이딩(Cascading)이란?
 
-![](https://cdn.britannica.com/66/123766-050-9C662576/Dark-Hollow-Falls-Shenandoah-National-Park-Virginia.jpg)
+![dark hollow falls](https://cdn.britannica.com/66/123766-050-9C662576/Dark-Hollow-Falls-Shenandoah-National-Park-Virginia.jpg)
 
 **Cascading(캐스케이딩)** 이란 위에서 아래로 흐르는 폭포수를 의미합니다. CSS 스타일이 적용될 때 규칙이 위에서 아래로 흐르듯, 우선순위를 정해 최종 스타일을 결정하는 알고리즘입니다.
 
@@ -25,7 +25,7 @@ CSS(Cascading Style Sheet)는 웹 페이지의 스타일을 결정하는 필수�
 - **범위(Scoping)** (DOM 요소 간 거리)
 - **선언 순서(Order)** (코드 내 선언 순서)
 
-> *OISSO*, 오이소~
+> _OISSO_, 오이소~
 
 ## 2. CSS 적용 우선순위 단계별 정리
 
@@ -117,7 +117,7 @@ div { color: green; }
 
 - **결과**: 아이디 선택자(`#header`)가 가장 높은 명시도를 가져, `color: red`가 적용됩니다.
 
-#### Deep Dive: 명시도 가중치 및 비교법 
+#### Deep Dive: 명시도 가중치 및 비교법
 
 명시도는 각 선택자마다 가중치가 있고, 이를 [Three-column comparsion](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity#three-column_comparison)를 통해 비교를 합니다.
 
@@ -144,7 +144,7 @@ div { color: green; }
 
 ```html
 <body id="myApp">
-	<div id="myElement"></div>
+  <div id="myElement"></div>
 </body>
 ```
 
@@ -214,18 +214,18 @@ CSS의 캐스케이드와 명시도를 잘 활용하여, 유지보수가 쉽고 
 
 ### 팁 1 - Styles 탭 내용의 순서
 
-![](https://developer.chrome.com/static/docs/devtools/css/reference/image/an-example-a-selected-el-73f5c083a4f5_1920.png?hl=ko)
-우측의 스타일들이 나열된 순서는 이 글에서 다뤘던 CSS의 Cascading 규칙에 따라 우선순위가 높은 것 부터 낮은 순서대로 나열되어있습니다. 
-
+![chrome devtools styles tab](https://developer.chrome.com/static/docs/devtools/css/reference/image/an-example-a-selected-el-73f5c083a4f5_1920.png?hl=ko)
+우측의 스타일들이 나열된 순서는 이 글에서 다뤘던 CSS의 Cascading 규칙에 따라 우선순위가 높은 것 부터 낮은 순서대로 나열되어있습니다.
 
 ### 팁 2 - 명시도 값, 직접 확인하기
-![](https://developer.chrome.com/static/docs/devtools/css/reference/image/the-tooltip-specificity-e28a5e9a4b32_1920.png?hl=ko)
+
+![chrome devtools styles tab tooltip](https://developer.chrome.com/static/docs/devtools/css/reference/image/the-tooltip-specificity-e28a5e9a4b32_1920.png?hl=ko)
 선택자 위로 마우스를 가져가면 명시도 가중치가 포함된 도움말이 표시됩니다. 이를 통해, 어떤 스타일이 왜 적용되었는지 더욱 정확하게 파악할 수 있습니다.
 
 이외에도 여러가지 CSS 관련 기능들이 있습니다. 자세한 내용은 [링크](https://developer.chrome.com/docs/devtools/css/reference?hl=ko)를 참고해주세요.
 
 ## 출처 및 참조
 
-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade
-- https://developer.mozilla.org/ko/docs/Web/CSS/CSS_cascade/Specificity
-- https://developer.chrome.com/docs/devtools/css/reference?hl=ko
+- <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade>
+- <https://developer.mozilla.org/ko/docs/Web/CSS/CSS_cascade/Specificity>
+- <https://developer.chrome.com/docs/devtools/css/reference?hl=ko>

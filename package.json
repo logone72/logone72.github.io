@@ -19,6 +19,8 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
+    "markdownlint": "markdownlint '**/*.md'",
+    "markdownlint:fix": "markdownlint --fix '**/*.md'",
     "prepare": "husky"
   },
   "contributors": [
@@ -31,6 +33,7 @@
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.9.1",
+    "@naverpay/markdown-lint": "^1.0.0",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
     "husky": "^9.1.7",

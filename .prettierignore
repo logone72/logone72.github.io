@@ -4,4 +4,4 @@ coverage
 node_modules
 README.md
 posts/*
-*.md
+**/*.md

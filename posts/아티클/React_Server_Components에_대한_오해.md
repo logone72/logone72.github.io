@@ -5,7 +5,7 @@ titleTemplate: logone72
 
 # React Server Components에 대한 오해
 
-![](https://res.cloudinary.com/ddxwdqwkr/image/upload/f_auto/v1617437062/patterns.dev/reactServerComponents.png)
+![react server components](https://res.cloudinary.com/ddxwdqwkr/image/upload/f_auto/v1617437062/patterns.dev/reactServerComponents.png)
 
 **React Server Components(RSC)** 라는 명칭을 보면서 아래와 같은 궁금증이 개인적으로 생겼었습니다.
 
@@ -181,15 +181,14 @@ Next.js는 이제 React의 정식 런타임 위에서 작동하며, 다른 프�
 > React는 모든 걸 직접 만들지 않습니다.  
 > 대신, 모두가 React 위에서 같은 방식으로 만들 수 있도록 돕습니다.
 
-
 ## 출처 및 참조
 
-- https://ko.react.dev/blog/2024/12/05/react-19
-- https://react.dev/reference/rsc/server-components
-- https://react.dev/reference/rsc/server-functions
-- https://www.joshwcomeau.com/react/server-components
+- <https://ko.react.dev/blog/2024/12/05/react-19>
+- <https://react.dev/reference/rsc/server-components>
+- <https://react.dev/reference/rsc/server-functions>
+- <https://www.joshwcomeau.com/react/server-components>
 
 ## 추천 연관 아티클
 
 - [React 서버 컴포넌트 작동원리를 아주 쉽게 알아보자 - 정백경](https://blog.kmong.com/react-server-component%EB%A1%9C-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%98%81%EC%8B%A0%ED%95%98%EA%B8%B0-part-2-5cf0bf4416b0)
-  - RSC 작동 원리를 아주 쉽고 재밌게 설명해주는 아티클입니다. 
+  - RSC 작동 원리를 아주 쉽고 재밌게 설명해주는 아티클입니다.

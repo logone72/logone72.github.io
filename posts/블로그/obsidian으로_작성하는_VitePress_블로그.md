@@ -5,7 +5,7 @@ titleTemplate: logone72
 
 # Obsidian으로 자동 배포되는 VitePress 블로그 구축기
 
-![](https://obsidian.md/images/screenshot-1.0-hero-combo.png)
+![obsidian screenshot](https://obsidian.md/images/screenshot-1.0-hero-combo.png)
 
 이 블로그는 로컬에서 사용하는 [Obsidian](https://obsidian.md/)이라는 마크다운 에디터에서 작성한 글이 자동으로 [VitePress](https://vitepress.dev/) 기반 블로그에 배포되는 구조로 되어 있습니다. 개인 개발자로서 학습과 프로젝트에서 얻은 지식을 **가볍게 기록하고, 손쉽게 공유**하기 위해 만든 시스템입니다.
 

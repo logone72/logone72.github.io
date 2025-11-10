@@ -5,15 +5,15 @@ titleTemplate: logone72
 
 # 프론트는 CORS 모르면 안됩니다
 
-![](https://mdn.github.io/shared-assets/images/diagrams/http/cors/fetching-page-cors.svg)
+![fetching page CORS](https://mdn.github.io/shared-assets/images/diagrams/http/cors/fetching-page-cors.svg)
 
 프론트엔드 개발을 하다 보면, API를 연결하는 순간 이런 문구를 한 번쯤은 보셨을 겁니다.
 
-> **"Access to fetch at 'https://api.example.com' from origin 'http://localhost:3000' has been blocked by CORS policy..."**
+> **"Access to fetch at '<https://api.example.com>' from origin '<http://localhost:3000>' has been blocked by CORS policy..."**
 
 이 에러는 프론트엔드 개발자에게 가장 흔하면서도, 가장 많은 오해를 받는 문제입니다.  
 
-문제가 발생했을때 대부분의 경우, 서버 설정을 수정해야 해결이 가능합니다. 
+문제가 발생했을때 대부분의 경우, 서버 설정을 수정해야 해결이 가능합니다.
 
 하지만 "이건 백엔드가 설정을 안 해줘서 그래요"라고 말하면 왠지 책임 회피처럼 들리고, "프록시 돌리면 되지 않나요?"라고 하면 임시방편 같아 보이기도 합니다.
 
@@ -22,7 +22,6 @@ titleTemplate: logone72
 CORS가 왜 생기고 어떻게 해결해야 하는지를 정리해보겠습니다.
 
 ## CORS란?
-
 
 CORS(Cross-Origin Resource Sharing)는 이름 그대로 **서로 다른 출처(origin) 간 리소스 공유를 통제하는 규칙**입니다.  
 
@@ -68,6 +67,7 @@ CORS(Cross-Origin Resource Sharing)는 이름 그대로 **서로 다른 출처(o
 브라우저는 왜 출처가 다른 요청을 차단하는 정책을 채택했을까요?
 
 예를 들어,
+
 - 브라우저에서 `https://bank.com`에 로그인한 상태에서  
 - 동시에 다른 탭에서 `https://evil.com`이 실행 중이라면,  
   `evil.com`이 `bank.com`의 API에 몰래 요청을 보낼 수 있습니다.
@@ -88,16 +88,17 @@ CORS 요청에는 두 가지 타입이 있습니다.
 
 **"안전한 요청"은 바로 보내고, "잠재적으로 위험할 수도 있는 요청"은 먼저 허락을 받는 구조**로 되어 있습니다.
 
-###  Simple Request
+### Simple Request
 
 아래의 일부 조건을 만족하면, 브라우저는 바로 메인 요청을 보냅니다.
+
 - GET, POST, HEAD 메서드 중 하나
 - 아래 헤더만 수동으로 수정한 요청 (사용자 에이전트가 자동으로 설정한 헤더 제외)
-	- [`Accept`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Accept)
-	- [`Accept-Language`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Accept-Language)
-	- [`Content-Language`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Content-Language)
-	- [`Range`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Range) (오직 [단순 범위 헤더 값](https://fetch.spec.whatwg.org/#simple-range-header-value), 예를 들어 `bytes=256-` 혹은 `bytes=127-255`)
-	- [`Content-Type`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Content-Type) 
+  - [`Accept`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Accept)
+  - [`Accept-Language`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Accept-Language)
+  - [`Content-Language`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Content-Language)
+  - [`Range`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Range) (오직 [단순 범위 헤더 값](https://fetch.spec.whatwg.org/#simple-range-header-value), 예를 들어 `bytes=256-` 혹은 `bytes=127-255`)
+  - [`Content-Type`](https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Content-Type)
 - Content-Type이 `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`일 때만 허용
 
 예를 들어, 단순한 `fetch('https://api.example.com/posts')`는 바로 메인 요청이 호출되죠.
@@ -124,7 +125,6 @@ Access-Control-Allow-Headers: Content-Type
 이 과정을 모르면, "내 fetch가 왜 두 번씩 나가?"라고 헷갈릴 수도 있습니다.
 
 자주 발생하는 요청의 경우 `Access-Control-Max-Age` 헤더에 캐시될 시간을 명시해 주면, 이 Preflight 요청을 캐싱 시켜 최적화를 시켜줄 수 있습니다.
-
 
 ## CORS 오류가 발생하는 주요 케이스
 
@@ -184,15 +184,14 @@ Access-Control-Allow-Headers: Content-Type
 
 ## 결론
 
-CORS의 개념 자체는 단순하고 어렵지 않습니다. 
+CORS의 개념 자체는 단순하고 어렵지 않습니다.
 
-하지만 프론트엔드 개발자 입장에서 문제를 해결하기 위해서는 반드시 커뮤니케이션이 필요한 영역입니다. 
+하지만 프론트엔드 개발자 입장에서 문제를 해결하기 위해서는 반드시 커뮤니케이션이 필요한 영역입니다.
 
 그렇기에 CORS에 대해서 정확하게 이해하고 있어야 불필요한 커뮤니케이션 비용을 늘리지 않고 깔끔하게 문제를 해결할 수 있습니다.
 
-
 ## 참고 및 출처
 
-- https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/CORS
-- https://inpa.tistory.com/entry/WEB-%F0%9F%93%9A-CORS-%F0%9F%92%AF-%EC%A0%95%EB%A6%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%F0%9F%91%8F
-- https://aws.amazon.com/ko/what-is/cross-origin-resource-sharing/
+- <https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/CORS>
+- <https://inpa.tistory.com/entry/WEB-%F0%9F%93%9A-CORS-%F0%9F%92%AF-%EC%A0%95%EB%A6%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%F0%9F%91%8F>
+- <https://aws.amazon.com/ko/what-is/cross-origin-resource-sharing/>
