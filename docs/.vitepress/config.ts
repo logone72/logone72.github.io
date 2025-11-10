@@ -61,6 +61,7 @@ export default defineConfig(
       },
       cleanUrls: true,
       lastUpdated: true,
+      ignoreDeadLinks: 'localhostLinks',
     },
     {
       documentRootPath,
