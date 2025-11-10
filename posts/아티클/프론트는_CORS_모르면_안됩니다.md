@@ -3,13 +3,13 @@ description: CORS 에러가 발생했을 때, 정확히 알아야 쉽게 해결�
 titleTemplate: logone72
 ---
 
-# 프론트는 CORS 모르면 안됩니다.
+# 프론트는 CORS 모르면 안됩니다
 
 ![](https://mdn.github.io/shared-assets/images/diagrams/http/cors/fetching-page-cors.svg)
 
 프론트엔드 개발을 하다 보면, API를 연결하는 순간 이런 문구를 한 번쯤은 보셨을 겁니다.
 
-> **"Access to fetch at '[https://api.example.com](https://api.example.com/)' from origin '[http://localhost:3000](http://localhost:3000/)' has been blocked by CORS policy..."**
+> **"Access to fetch at 'https://api.example.com' from origin 'http://localhost:3000' has been blocked by CORS policy..."**
 
 이 에러는 프론트엔드 개발자에게 가장 흔하면서도, 가장 많은 오해를 받는 문제입니다.  
 
