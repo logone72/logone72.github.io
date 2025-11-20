@@ -192,3 +192,6 @@ Next.js는 이제 React의 정식 런타임 위에서 작동하며, 다른 프�
 
 - [React 서버 컴포넌트 작동원리를 아주 쉽게 알아보자 - 정백경](https://blog.kmong.com/react-server-component%EB%A1%9C-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%98%81%EC%8B%A0%ED%95%98%EA%B8%B0-part-2-5cf0bf4416b0)
   - RSC 작동 원리를 아주 쉽고 재밌게 설명해주는 아티클입니다.
+- [리액트 서버 컴포넌트는 정말 성능을 개선할까요? (번역)](https://handhand.tistory.com/entry/react-server-components-performance?utm_source=substack&utm_medium=email#%EC%84%B1%EB%8A%A5%EC%9D%84-%EC%B8%A1%EC%A0%95%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%86%8C%EA%B0%9C)
+  - RSC 성능을 측정한 아티클입니다. 직접 테스트 해 볼 수 있는 프로젝트가 포함되어있습니다.
+  - [원문 링크](https://www.developerway.com/posts/react-server-components-performance)
