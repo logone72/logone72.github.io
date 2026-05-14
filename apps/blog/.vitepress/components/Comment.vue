@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
 import { useData } from 'vitepress';
+import { onMounted, ref } from 'vue';
 
 const { isDark } = useData();
 const darkComment = ref<HTMLElement | null>(null);
@@ -27,8 +27,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-show="isDark" ref="darkComment"></div>
-  <div v-show="!isDark" ref="lightComment"></div>
+  <div v-show="isDark" ref="darkComment" />
+  <div v-show="!isDark" ref="lightComment" />
 </template>
 
 <style lang="scss" scoped></style>

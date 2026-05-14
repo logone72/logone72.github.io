@@ -1,5 +1,6 @@
-import { withSidebar } from 'vitepress-sidebar';
 import { defineConfig } from 'vitepress';
+import { withSidebar } from 'vitepress-sidebar';
+
 import { repository } from '../../../package.json';
 import {
   absoluteRoutes,

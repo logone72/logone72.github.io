@@ -1,4 +1,5 @@
 import './style.css';
+
 import { routes } from '../../../src/router/index.mjs';
 
 const app = document.querySelector<HTMLDivElement>('#app');

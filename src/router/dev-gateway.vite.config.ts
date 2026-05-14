@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+
 import { createDevGatewayProxy } from './dev-gateway.mjs';
 import { devServer } from './index.mjs';
 

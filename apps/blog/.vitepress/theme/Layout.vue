@@ -1,7 +1,8 @@
 <script setup>
-import Comment from '../components/Comment.vue';
-import DefaultTheme from 'vitepress/theme';
 import { useData } from 'vitepress';
+import DefaultTheme from 'vitepress/theme';
+
+import Comment from '../components/Comment.vue';
 
 const { Layout } = DefaultTheme;
 const { frontmatter, page } = useData();
