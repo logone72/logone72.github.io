@@ -1,3 +1,7 @@
+dist/
+apps/home/dist/
+apps/blog/.vitepress/dist/
+apps/blog/.vitepress/cache/
 docs/.vitepress/dist
 docs/.vitepress/cache
 

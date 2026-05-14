@@ -16,9 +16,17 @@
     "url": "https://github.com/logone72/logone72.github.io/issues"
   },
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "preview": "vitepress preview docs",
+    "dev": "node scripts/dev.mjs",
+    "dev:site": "node scripts/dev-server.mjs site",
+    "dev:home": "node scripts/dev-server.mjs home",
+    "dev:blog": "node scripts/dev-server.mjs blog",
+    "build": "npm run build:home && npm run build:blog && npm run assemble",
+    "build:home": "vite build --config apps/home/vite.config.ts",
+    "build:blog": "vitepress build apps/blog",
+    "assemble": "node scripts/assemble-dist.mjs",
+    "preview": "vite preview --host 0.0.0.0 --outDir dist",
+    "preview:home": "vite preview --config apps/home/vite.config.ts --host 0.0.0.0",
+    "preview:blog": "vitepress preview apps/blog --host 0.0.0.0",
     "markdownlint": "markdownlint '**/*.md'",
     "markdownlint:fix": "markdownlint --fix '**/*.md'",
     "prepare": "husky"
@@ -27,7 +35,7 @@
     "Roegan Kim <roegan.kim@gmail.com>"
   ],
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
@@ -39,8 +47,9 @@
     "husky": "^9.1.7",
     "prettier": "3.4.2",
     "typescript": "^5.9.3",
-    "vitepress": "^2.0.0-alpha.12",
+    "vite": "^7.3.3",
+    "vitepress": "^2.0.0-alpha.17",
     "vitepress-sidebar": "^1.33.0",
-    "vue": "^3.2.45"
+    "vue": "^3.5.34"
   }
 }
