@@ -12,9 +12,9 @@
 - 기존 검색 색인과 이전 URL 보존은 이번 마이그레이션의 필수 요구사항에서 제외한다.
 - VitePress 패키지를 먼저 최신화하고, 변경된 규칙이나 빌드 동작을 확인한 뒤 구조 변경을 진행한다.
 
-## 현재 구조
+## 마이그레이션 전 구조
 
-현재 구조의 주요 특징은 다음과 같다.
+마이그레이션 전 구조의 주요 특징은 다음과 같다.
 
 - `package.json`의 실행 스크립트는 `vitepress dev docs`, `vitepress build docs`, `vitepress preview docs` 중심이다.
 - VitePress 설정은 `docs/.vitepress/config.ts`에 있다.
@@ -31,10 +31,11 @@
 ├── apps
 │   ├── home
 │   │   ├── index.html
-│   │   ├── package.json
+│   │   ├── dist
 │   │   └── src
 │   └── blog
 │       └── .vitepress
+│           └── dist
 ├── content
 │   └── blog
 ├── docs
@@ -53,8 +54,10 @@
 - `apps/home`: 루트(`/`) 홈 페이지를 담당한다.
 - `apps/blog`: VitePress 설정과 블로그 빌드 책임을 담당한다.
 - `content/blog`: 블로그 원문 마크다운과 public asset을 담당한다.
-- `dist`: GitHub Pages에 배포할 최종 산출물이다.
-- `scripts/build.mjs`: 홈과 블로그를 순서대로 빌드하고 최종 산출물을 합친다.
+- `apps/home/dist`: 홈 앱의 독립 빌드 산출물이다.
+- `apps/blog/.vitepress/dist`: 블로그 앱의 독립 빌드 산출물이다.
+- `dist`: GitHub Pages에 배포할 최종 통합 산출물이다.
+- `scripts/build.mjs`: 앱별 빌드 산출물을 최종 `dist`로 조립한다.
 
 ## 기술 선택
 
@@ -104,7 +107,7 @@ VitePress 설정을 `/blog` 하위 배포에 맞춘다.
 
 - VitePress config에 `base: '/blog/'`를 추가한다.
 - `srcDir`를 새 콘텐츠 경로에 맞춰 조정한다.
-- `outDir`를 최종 배포 구조에 맞춰 `../../dist/blog` 또는 별도 임시 출력 경로로 조정한다.
+- VitePress의 독립 빌드 산출물은 `apps/blog/.vitepress/dist`에 둔다.
 - 블로그 nav에서 루트 홈으로 돌아가는 링크와 블로그 인덱스 링크를 명확히 분리한다.
 - `sitemap.hostname`이 최종 URL을 올바르게 생성하는지 확인한다.
 
@@ -132,7 +135,7 @@ VitePress 설정을 `/blog` 하위 배포에 맞춘다.
 - Vite vanilla template 수준의 가벼운 구조로 시작한다.
 - 라우터는 처음부터 넣지 않는다.
 - 루트 홈에서 블로그 진입 링크는 `/blog/`를 사용한다.
-- 홈 앱 산출물은 최종 `dist` 루트에 배치한다.
+- 홈 앱의 독립 빌드 산출물은 `apps/home/dist`에 둔다.
 
 라우터는 다음 조건이 생기면 도입한다.
 
@@ -142,29 +145,57 @@ VitePress 설정을 `/blog` 하위 배포에 맞춘다.
 
 ### 5. 최종 빌드 파이프라인 구성
 
-최종 배포는 하나의 `dist`를 기준으로 한다.
+각 앱은 독립적으로 빌드하고, 최종 배포는 하나의 루트 `dist`로 조립한다. 이 방식을 기본안으로 확정한다.
 
-빌드 흐름은 다음 중 하나로 정한다.
+이 구조를 사용하면 홈 앱과 VitePress 블로그를 각각 별도로 빌드하고 preview할 수 있다. 동시에 GitHub Pages에는 하나의 정적 사이트 artifact만 업로드할 수 있다.
+
+앱별 산출물은 다음 위치를 기준으로 한다.
+
+```text
+apps/home/dist
+apps/blog/.vitepress/dist
+```
+
+최종 통합 산출물은 다음 위치를 기준으로 한다.
+
+```text
+dist
+├── index.html
+├── assets
+└── blog
+    ├── index.html
+    └── assets
+```
+
+빌드 흐름은 다음과 같다.
 
 ```text
 npm run build
 ├── clean dist
-├── build home into dist
-└── build blog into dist/blog
+├── npm run build:home
+│   └── apps/home/dist
+├── npm run build:blog
+│   └── apps/blog/.vitepress/dist
+└── npm run assemble
+    ├── copy apps/home/dist/* to dist/*
+    └── copy apps/blog/.vitepress/dist/* to dist/blog/*
 ```
 
-또는 다음처럼 임시 출력 후 복사한다.
+개별 빌드 명령은 다음처럼 분리한다.
 
 ```text
-npm run build
-├── clean dist
-├── build home into .temp/home
-├── build blog into .temp/blog
-├── copy .temp/home to dist
-└── copy .temp/blog to dist/blog
+npm run build:home
+npm run build:blog
 ```
 
-가능하면 각 도구의 `outDir` 설정을 사용해서 복사 단계를 줄인다.
+개별 preview 명령도 다음처럼 분리한다.
+
+```text
+npm run preview:home
+npm run preview:blog
+```
+
+`npm run build:blog`는 VitePress만 따로 검증할 수 있어야 한다. 따라서 VitePress의 기본 산출물 위치인 `.vitepress/dist`를 유지하고, 최종 배포 경로인 `dist/blog`로 직접 출력하지 않는다.
 
 ### 6. GitHub Actions 변경
 
