@@ -20,6 +20,7 @@ Logone72의 개인 홈과 개발 블로그입니다.
 apps/home/     # 루트 홈 앱
 apps/blog/     # VitePress 블로그 앱
 content/blog/  # 블로그 마크다운과 public 자산
+src/router/    # 사이트 라우트 상수와 URL helper
 scripts/       # 개발 서버 실행과 배포 산출물 조립 스크립트
 ```
 

@@ -1,12 +1,13 @@
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
+import { devServer, routes } from '../../src/router/index.mjs';
 
 export default defineConfig({
   root: fileURLToPath(new URL('.', import.meta.url)),
   server: {
     proxy: {
-      '/blog': {
-        target: 'http://localhost:5174',
+      [routes.blogProxy]: {
+        target: devServer.blogTarget,
         changeOrigin: true,
       },
     },

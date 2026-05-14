@@ -14,6 +14,7 @@
 - `apps/home`은 루트 경로(`/`)를 담당하는 vanilla Vite 앱입니다.
 - `apps/blog`는 `/blog/`를 담당하는 VitePress 앱입니다.
 - `content/blog`는 블로그 마크다운과 VitePress public 자산을 담습니다.
+- 사이트 경로 상수와 URL helper는 `src/router`에서 관리합니다.
 - VitePress config의 `base: '/blog/'`를 유지합니다.
 - 루트 `robots.txt`는 `https://logone72.github.io/blog/sitemap.xml`을
   가리켜야 합니다.

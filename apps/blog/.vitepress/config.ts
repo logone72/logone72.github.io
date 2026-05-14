@@ -1,19 +1,19 @@
 import { withSidebar } from 'vitepress-sidebar';
 import { defineConfig } from 'vitepress';
 import { repository } from '../../../package.json';
+import {
+  absoluteRoutes,
+  routes,
+  siteOrigin,
+  withBlogBase,
+} from '../../../src/router/index.mjs';
 
 const documentRootPath = 'content/blog';
-const withBlogBase = (url: string) => {
-  const normalized =
-    url === '/' || url === '' ? '/' : `/${url.replace(/^\/+/, '')}`;
-
-  return `/blog${normalized}`;
-};
 
 export default defineConfig(
   withSidebar(
     {
-      base: '/blog/',
+      base: routes.blog,
       title: 'logone72',
       description: '프론트엔드 개발자 logone72 입니다.',
       srcDir: '../../content/blog',
@@ -51,11 +51,11 @@ export default defineConfig(
           })(window, document, "clarity", "script", "u08gul678r");
           `,
         ],
-        ['link', { rel: 'icon', href: '/blog/favicon.ico' }],
+        ['link', { rel: 'icon', href: `${routes.blogProxy}/favicon.ico` }],
       ],
       lang: 'ko-KR',
       sitemap: {
-        hostname: 'https://logone72.github.io',
+        hostname: siteOrigin,
         transformItems: (items) =>
           items.map((item) => ({
             ...item,
@@ -65,8 +65,8 @@ export default defineConfig(
       themeConfig: {
         logo: '/icons8-dev-30.png',
         nav: [
-          { text: 'Home', link: 'https://logone72.github.io/' },
-          { text: 'Blog', link: '/' },
+          { text: 'Home', link: absoluteRoutes.home },
+          { text: 'Blog', link: routes.home },
         ],
         socialLinks: [{ icon: 'github', link: repository }],
         search: {
