@@ -12,13 +12,16 @@ export const absoluteRoutes = Object.freeze({
   blogSitemap: new URL(routes.blogSitemap, siteOrigin).toString(),
 });
 
-const homePort = 5173;
+const sitePort = 5173;
 const blogPort = 5174;
+const homePort = 5175;
 
 export const devServer = Object.freeze({
   host: '0.0.0.0',
+  sitePort,
   homePort,
   blogPort,
+  homeTarget: `http://localhost:${homePort}`,
   blogTarget: `http://localhost:${blogPort}`,
 });
 

@@ -17,6 +17,7 @@
   },
   "scripts": {
     "dev": "node scripts/dev.mjs",
+    "dev:site": "node scripts/dev-server.mjs site",
     "dev:home": "node scripts/dev-server.mjs home",
     "dev:blog": "node scripts/dev-server.mjs blog",
     "build": "npm run build:home && npm run build:blog && npm run assemble",

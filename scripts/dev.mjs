@@ -11,6 +11,11 @@ const commands = [
     command: 'npm',
     args: ['run', 'dev:blog'],
   },
+  {
+    name: 'site',
+    command: 'npm',
+    args: ['run', 'dev:site'],
+  },
 ];
 
 const children = new Map();

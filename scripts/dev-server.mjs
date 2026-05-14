@@ -2,6 +2,18 @@ import { spawn } from 'node:child_process';
 import { devServer } from '../src/router/index.mjs';
 
 const servers = {
+  site: {
+    command: 'vite',
+    args: [
+      '--config',
+      'src/router/dev-gateway.vite.config.ts',
+      '--host',
+      devServer.host,
+      '--port',
+      String(devServer.sitePort),
+      '--strictPort',
+    ],
+  },
   home: {
     command: 'vite',
     args: [

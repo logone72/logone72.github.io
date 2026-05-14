@@ -21,12 +21,14 @@
 
 ## 개발 서버 규칙
 
-- `npm run dev`는 홈과 블로그 개발 서버를 함께 실행합니다.
-- 홈 개발 서버는 `5173` 포트를 사용합니다.
+- `npm run dev`는 사이트 gateway, 홈, 블로그 개발 서버를 함께 실행합니다.
+- 사이트 gateway 개발 서버는 `5173` 포트를 사용합니다.
 - 블로그 개발 서버는 `5174` 포트를 사용합니다.
-- 홈 Vite 서버는 `/blog` 요청을 VitePress 개발 서버로 proxy합니다.
-- 한쪽 앱만 격리해서 볼 때만 `npm run dev:home` 또는 `npm run dev:blog`를
-  사용합니다.
+- 홈 개발 서버는 격리 실행 시 `5175` 포트를 사용합니다.
+- 사이트 gateway Vite 서버는 `/` 요청을 홈 개발 서버로, `/blog` 요청을
+  VitePress 개발 서버로 proxy합니다.
+- 한쪽 앱만 격리해서 볼 때만 `npm run dev:home`, `npm run dev:blog`,
+  `npm run dev:site`를 사용합니다.
 
 ## 빌드 규칙
 
