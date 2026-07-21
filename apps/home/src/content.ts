@@ -19,7 +19,6 @@ export type HomeContent = {
   languageLabel: string;
   location: string;
   name: string;
-  portfolioLabel: string;
   primaryLabel: string;
   profileLabel: string;
   replayIntro: string;
@@ -42,7 +41,6 @@ export const contentByLocale: Record<Locale, HomeContent> = {
   en: {
     ...shared,
     languageLabel: 'Language',
-    portfolioLabel: 'Portfolio / 2026',
     primaryLabel: 'Primary',
     profileLabel: 'Profile',
     role: 'Frontend Developer',
@@ -97,8 +95,8 @@ export const contentByLocale: Record<Locale, HomeContent> = {
   },
   ko: {
     ...shared,
+    name: '김록원',
     languageLabel: '언어',
-    portfolioLabel: '포트폴리오 / 2026',
     primaryLabel: '주요 링크',
     profileLabel: '프로필',
     role: '프론트엔드 개발자',

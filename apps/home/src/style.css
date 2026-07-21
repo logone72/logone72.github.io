@@ -34,6 +34,7 @@
 
 html {
   min-width: 320px;
+  overflow-y: scroll;
   background: var(--paper);
 }
 
@@ -248,12 +249,8 @@ a:focus-visible {
   display: grid;
   min-height: 100svh;
   padding: 40px var(--page-padding) 52px;
-  grid-template-rows: auto 1fr auto auto;
+  grid-template-rows: 1fr auto auto;
   gap: clamp(28px, 5vh, 72px);
-}
-
-.hero > .micro-label {
-  margin: 0;
 }
 
 .hero > div {
@@ -295,6 +292,7 @@ h1 {
   font-size: clamp(1.55rem, 3vw, 2.7rem);
   letter-spacing: -0.025em;
   line-height: 1.13;
+  word-break: keep-all;
 }
 
 .scroll-link {

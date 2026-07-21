@@ -33,7 +33,7 @@ const resizeCanvas = (
   context: CanvasRenderingContext2D,
 ): CanvasSize => {
   const ratio = Math.min(window.devicePixelRatio || 1, 2);
-  const width = window.innerWidth;
+  const width = document.documentElement.clientWidth;
   const height = window.innerHeight;
 
   canvas.width = width * ratio;

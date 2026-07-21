@@ -64,7 +64,6 @@ const renderHome = (content: HomeContent, locale: Locale) => `
 
     <main class="main-content">
       <section class="hero" aria-labelledby="site-title">
-        <p class="micro-label">${content.portfolioLabel}</p>
         <div>
           <h1 id="site-title">${content.name}</h1>
           <p class="hero-role">${content.role}</p>
