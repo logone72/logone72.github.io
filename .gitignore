@@ -6,6 +6,7 @@ docs/.vitepress/dist
 docs/.vitepress/cache
 
 node_modules/
+_workspace/
 
 .DS_Store
 .obsidian
