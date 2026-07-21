@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://logone72.github.io/blog/sitemap.xml
+Sitemap: https://logone72.github.io/sitemap.xml
 
 #                        .,,uod8B8bou,,.
 #               ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.

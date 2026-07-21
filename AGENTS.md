@@ -1,5 +1,10 @@
 # AGENTS.md
 
+## 개발 목적
+
+- home: 프론트엔드 개발자 홈 페이지
+- blog: 프론트엔드 개발자 블로그
+
 ## 작업 기준
 
 - 문서는 한국어로 작성합니다.
@@ -12,11 +17,15 @@
 ## 앱 구조 규칙
 
 - `apps/home`은 루트 경로(`/`)를 담당하는 vanilla Vite 앱입니다.
+- 홈의 다국어 문구와 경력·기술 스택 데이터는
+  `apps/home/src/content.ts`에서 관리합니다.
+- 홈 기능을 수정할 때 `apps/blog`와 `content/blog`의 VitePress 구현은
+  변경하지 않습니다.
 - `apps/blog`는 `/blog/`를 담당하는 VitePress 앱입니다.
 - `content/blog`는 블로그 마크다운과 VitePress public 자산을 담습니다.
 - 사이트 경로 상수와 URL helper는 `src/router`에서 관리합니다.
 - VitePress config의 `base: '/blog/'`를 유지합니다.
-- 루트 `robots.txt`는 `https://logone72.github.io/blog/sitemap.xml`을
+- 루트 `robots.txt`는 `https://logone72.github.io/sitemap.xml`을
   가리켜야 합니다.
 
 ## 개발 서버 규칙
@@ -35,9 +44,11 @@
 - `npm run build:home`은 `apps/home/dist`를 생성합니다.
 - `npm run build:blog`는 `apps/blog/.vitepress/dist`를 생성합니다.
 - `npm run assemble`은 두 산출물을 최종 루트 `dist`로 복사합니다.
+- 조립 시 VitePress sitemap에 홈의 `/`와 `/ko/`를 합쳐
+  `dist/sitemap.xml`을 생성합니다.
 - VitePress가 루트 `dist/blog`로 직접 출력되도록 설정하지 않습니다.
-- `npm run build` 결과에는 `dist/index.html`과 `dist/blog/index.html`이
-  있어야 합니다.
+- `npm run build` 결과에는 `dist/index.html`, `dist/ko/index.html`,
+  `dist/blog/index.html`, `dist/sitemap.xml`이 있어야 합니다.
 
 ## 검증
 
