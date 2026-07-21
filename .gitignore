@@ -7,6 +7,11 @@ docs/.vitepress/cache
 
 node_modules/
 _workspace/
+.playwright/
+.playwright-cli/
+blob-report/
+playwright-report/
+test-results/
 
 .DS_Store
 .obsidian
