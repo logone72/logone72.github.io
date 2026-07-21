@@ -11,7 +11,6 @@ type Experience = {
 export type HomeContent = {
   email: string;
   experience: Experience[];
-  experienceDescription: string;
   experienceLabel: string;
   experienceTitle: string;
   github: string;
@@ -46,12 +45,11 @@ export const contentByLocale: Record<Locale, HomeContent> = {
     role: 'Frontend Developer',
     location: 'Seoul, South Korea',
     summary:
-      'I build frontend products for legal SaaS and mobility. I care about performance and usability, and I keep the code maintainable.',
+      "I've built and improved products in different fields. That experience helps me balance performance, maintainability, and usability.",
     scrollLabel: 'View timeline',
-    skillsLabel: 'Skills and subjects',
-    experienceLabel: 'Experience and education',
+    skillsLabel: 'Related skills and topics',
+    experienceLabel: 'Timeline',
     experienceTitle: 'Work and education',
-    experienceDescription: 'This timeline covers my work and education so far.',
     introLabel: 'Drawing the page',
     skipIntro: 'Skip intro',
     replayIntro: 'Replay intro',
@@ -68,26 +66,26 @@ export const contentByLocale: Record<Locale, HomeContent> = {
       },
       {
         period: 'Jan 2022 to Jun 2024',
-        company: 'Team O2 (Carmore)',
+        company: 'TeamO2 (Carmore)',
         role: 'Frontend Engineer',
         description:
-          'At Team O2, I worked on a mobility service used in WebView, desktop web, and TV environments. I moved about half of its legacy code to React and TypeScript and improved FCP by 50%.',
+          'At TeamO2, I developed a mobility service across mobile webviews, desktop browsers, and TV displays. I migrated roughly half of the legacy codebase to React and TypeScript and improved FCP by 50%.',
         skills: ['JavaScript', 'TypeScript', 'React', 'Webpack'],
       },
       {
         period: 'Aug 2021 to Dec 2021',
-        company: 'KAIST SW Academy Jungle',
-        role: 'Software Engineering Program',
+        company: 'KAIST',
+        role: 'SW Jungle (Non-degree Program)',
         description:
-          "I completed KAIST's five-month, non-degree SW Academy Jungle program. The course covered data structures, algorithms, web fundamentals, and C systems programming. I also worked on the pintOS operating system project.",
+          "I completed KAIST's five-month SW Jungle program, studying data structures, algorithms, web fundamentals, and systems programming in C. I also completed a Pintos operating system project.",
         skills: ['C', 'Algorithms', 'Operating Systems', 'Web'],
       },
       {
         period: 'Sep 2014 to Oct 2019',
         company: 'University College London',
-        role: 'BSc Mathematics',
+        role: 'Mathematics BSc',
         description:
-          'At University College London, I studied mathematics in English alongside students from many different backgrounds. The degree sharpened how I reason through and structure problems.',
+          'At University College London, I studied mathematics alongside students from many different backgrounds. The degree taught me to reason clearly and break complex problems into manageable parts.',
         skills: ['Mathematics', 'Problem Solving', 'English'],
       },
     ],
@@ -99,14 +97,13 @@ export const contentByLocale: Record<Locale, HomeContent> = {
     primaryLabel: '주요 링크',
     profileLabel: '프로필',
     role: '프론트엔드 개발자',
-    location: '대한민국 서울',
+    location: '서울, 대한민국',
     summary:
-      '다양한 종류의 제품의 프론트엔드를 만들고 개선합니다. 성능과 유지보수성, 사용자 경험도 함께 다룹니다.',
+      '여러 분야에서 제품을 만들고 개선해 왔습니다. 폭넓은 경험을 살려 성능과 유지보수성, 사용자 경험의 균형을 잡습니다.',
     scrollLabel: '이력 살펴보기',
-    skillsLabel: '기술 및 학습 주제',
-    experienceLabel: '경력 · 학력',
-    experienceTitle: '주요 이력',
-    experienceDescription: '개발자로 일하고 공부해 온 주요 이력입니다.',
+    skillsLabel: '관련 기술과 주제',
+    experienceLabel: '타임라인',
+    experienceTitle: '경력과 학력',
     introLabel: '페이지를 그리는 중',
     skipIntro: '인트로 건너뛰기',
     replayIntro: '인트로 다시 보기',
@@ -123,26 +120,26 @@ export const contentByLocale: Record<Locale, HomeContent> = {
       },
       {
         period: '2022.01 — 2024.06',
-        company: '팀오투(카모아)',
+        company: '팀오투 (카모아)',
         role: '프론트엔드 엔지니어',
         description:
-          'WebView, PC Web, TV를 아우르는 모빌리티 서비스를 개발하고 운영했습니다. 레거시 코드의 약 50%를 React와 TypeScript로 전환하고 FCP를 50% 개선했습니다.',
+          '모바일 웹뷰와 PC 웹, TV 환경을 아우르는 모빌리티 서비스를 개발하고 운영했습니다. 레거시 코드의 약 절반을 React와 TypeScript로 전환하고 FCP를 50% 개선했습니다.',
         skills: ['JavaScript', 'TypeScript', 'React', 'Webpack'],
       },
       {
         period: '2021.08 — 2021.12',
-        company: 'KAIST SW사관학교 정글',
+        company: 'KAIST SW 사관학교 정글',
         role: '비학위 소프트웨어 교육과정',
         description:
-          '5개월 몰입형 과정에서 자료구조, 알고리즘, 웹 기초, C 기반 시스템 프로그래밍을 학습하고 pintOS 운영체제 프로젝트를 수행했습니다.',
+          '5개월 몰입형 과정에서 자료구조와 알고리즘, 웹 기초, C 기반 시스템 프로그래밍을 학습하고 Pintos 운영체제 프로젝트를 수행했습니다.',
         skills: ['C', '알고리즘', '운영체제', '웹'],
       },
       {
         period: '2014.09 — 2019.10',
         company: 'University College London',
-        role: '수학과 학사',
+        role: '수학 학사',
         description:
-          '논리적 사고와 문제 구조화 역량을 쌓았고 영어로 소통하며 학업을 이어갔습니다.',
+          '수학을 공부하며 논리적 사고와 문제 구조화 역량을 쌓았고, 다양한 배경의 학생들과 영어로 소통했습니다.',
         skills: ['수학', '문제 해결', '영어'],
       },
     ],

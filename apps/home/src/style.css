@@ -334,14 +334,6 @@ h1 {
   line-height: 0.88;
 }
 
-.section-heading > p:last-child {
-  max-width: 28rem;
-  margin: 32px 0 0;
-  grid-column: 2;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
 .timeline-item {
   position: relative;
   display: grid;
@@ -505,10 +497,6 @@ h1 {
 
   .section-heading .micro-label {
     margin-bottom: 24px;
-  }
-
-  .section-heading > p:last-child {
-    margin-top: 28px;
   }
 
   .timeline-item {

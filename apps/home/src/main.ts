@@ -79,7 +79,6 @@ const renderHome = (content: HomeContent, locale: Locale) => `
         <header class="section-heading" data-reveal>
           <p class="micro-label">${content.experienceLabel}</p>
           <h2 id="experience-title">${content.experienceTitle}</h2>
-          <p>${content.experienceDescription}</p>
         </header>
         <div class="timeline">${renderExperience(content)}</div>
       </section>
