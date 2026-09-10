@@ -45,12 +45,12 @@ export const contentByLocale: Record<Locale, HomeContent> = {
     role: 'Frontend Developer',
     location: 'Seoul, South Korea',
     summary:
-      "I've built and improved products in different fields. That experience helps me balance performance, maintainability, and usability.",
-    scrollLabel: 'View timeline',
+      'Building web products across industries, balancing performance, user experience, and long-term maintainability.',
+    scrollLabel: 'View experience',
     skillsLabel: 'Related skills and topics',
     experienceLabel: 'Timeline',
-    experienceTitle: 'Work and education',
-    introLabel: 'Drawing the page',
+    experienceTitle: 'Experience and education',
+    introLabel: 'Welcome',
     skipIntro: 'Skip intro',
     replayIntro: 'Replay intro',
     themeDark: 'Dark mode',
@@ -61,7 +61,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
         company: 'Standby Lab',
         role: 'Frontend Developer',
         description:
-          'I build legal SaaS and back-office tools, maintain shared components, and set frontend standards. I reduced the initial JavaScript bundle by 80% and improved FCP by 50%.',
+          'Reduced the initial JavaScript bundle by 80% and improved First Contentful Paint (FCP) by 50%. Built workflows for legal SaaS products and back-office tools, led shared component development, and standardized the frontend development environment.',
         skills: ['TypeScript', 'React', 'Vite', 'React Query'],
       },
       {
@@ -69,23 +69,23 @@ export const contentByLocale: Record<Locale, HomeContent> = {
         company: 'TeamO2 (Carmore)',
         role: 'Frontend Engineer',
         description:
-          'At TeamO2, I developed a mobility service across mobile webviews, desktop browsers, and TV displays. I migrated roughly half of the legacy codebase to React and TypeScript and improved FCP by 50%.',
+          'Developed and maintained a mobility service across mobile webviews, desktop browsers, and TVs. Migrated about half of the legacy codebase to React and TypeScript and improved FCP by 50%.',
         skills: ['JavaScript', 'TypeScript', 'React', 'Webpack'],
       },
       {
         period: 'Aug 2021 to Dec 2021',
         company: 'KAIST',
-        role: 'SW Jungle (Non-degree Program)',
+        role: 'SW Jungle (non-degree program)',
         description:
-          "I completed KAIST's five-month SW Jungle program, studying data structures, algorithms, web fundamentals, and systems programming in C. I also completed a Pintos operating system project.",
+          'An intensive five-month program covering data structures, algorithms, web fundamentals, and systems programming in C. Practical work included a Pintos operating system project.',
         skills: ['C', 'Algorithms', 'Operating Systems', 'Web'],
       },
       {
         period: 'Sep 2014 to Oct 2019',
         company: 'University College London',
-        role: 'Mathematics BSc',
+        role: 'BSc in Mathematics',
         description:
-          'At University College London, I studied mathematics alongside students from many different backgrounds. The degree taught me to reason clearly and break complex problems into manageable parts.',
+          'Developed logical reasoning and a structured approach to complex problems through mathematics. Studied in English and exchanged ideas with classmates from a wide range of backgrounds.',
         skills: ['Mathematics', 'Problem Solving', 'English'],
       },
     ],
