@@ -1,9 +1,10 @@
 # logone72.github.io
 
-Logone72의 개인 홈과 개발 블로그입니다.
+프론트엔드 개발자 김록원의 인터랙티브 자기소개서이자 이력서·포트폴리오와
+개발 블로그입니다.
 
-- `/`: vanilla Vite 기반 영문 홈
-- `/ko/`: vanilla Vite 기반 한국어 홈
+- `/`: vanilla Vite 기반 영문 자기소개서·이력서·포트폴리오
+- `/ko/`: vanilla Vite 기반 한국어 자기소개서·이력서·포트폴리오
 - `/blog/`: VitePress 기반 블로그
 
 ## 링크
@@ -27,7 +28,8 @@ scripts/       # 개발 서버 실행과 배포 산출물 조립 스크립트
 
 최종 배포 산출물은 `npm run build`로 생성되는 루트 `dist/`입니다.
 
-홈의 영문·한국어 문구, 경력 타임라인, 기술 스택 뱃지는
+홈은 방문자가 짧은 탐색만으로 경력과 역량, 주요 작업을 이해할 수 있도록
+구성합니다. 영문·한국어 문구, 경력 타임라인, 기술 스택 뱃지는
 `apps/home/src/content.ts`에서 관리합니다. 현재 경력은 교체를 전제로 한 임시
 데이터입니다. 초기 Canvas 애니메이션은 `apps/home/src/intro.ts`, 화면 구성과
 테마·스크롤 동작은 `apps/home/src/main.ts`와 `apps/home/src/style.css`에서
