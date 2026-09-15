@@ -3,16 +3,17 @@ import './style.css';
 import { routes } from '../../../src/router/index.mjs';
 import { contentByLocale, type HomeContent, type Locale } from './content';
 import { setupIntro } from './intro';
+import { setupTimeline } from './timeline';
 
 const renderExperience = (content: HomeContent) =>
   content.experience
     .map(
       (entry, index) => `
-        <article class="timeline-item" data-reveal>
+        <article class="timeline-item" id="experience-${entry.id}" tabindex="-1" aria-labelledby="company-${entry.id}">
           <p class="timeline-index">${String(index + 1).padStart(2, '0')}</p>
           <div class="timeline-period">${entry.period}</div>
           <div class="timeline-copy">
-            <p class="timeline-company">${entry.company}</p>
+            <p class="timeline-company" id="company-${entry.id}">${entry.company}</p>
             <h3>${entry.role}</h3>
             <p class="timeline-description">${entry.description}</p>
             <ul class="skill-list" aria-label="${content.skillsLabel}">
@@ -23,6 +24,27 @@ const renderExperience = (content: HomeContent) =>
       `,
     )
     .join('');
+
+const renderExperienceNav = (content: HomeContent) => `
+  <nav class="experience-nav" aria-label="${content.experienceTitle}">
+    <p class="experience-nav-title micro-label">${content.experienceLabel}</p>
+    <p class="reading-position" data-reading-position>${content.experienceLabel}</p>
+    <ol>
+      ${content.experience
+        .map(
+          (entry, index) => `
+            <li>
+              <a href="#experience-${entry.id}">
+                <span class="experience-nav-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+                <span class="experience-nav-company">${entry.company}</span>
+              </a>
+            </li>
+          `,
+        )
+        .join('')}
+    </ol>
+  </nav>
+`;
 
 const renderLocaleLinks = (content: HomeContent, locale: Locale) => `
   <nav class="locale-switch" aria-label="${content.languageLabel}">
@@ -48,6 +70,8 @@ const renderHome = (content: HomeContent, locale: Locale) => `
         <p class="profile-name">${content.name}</p>
         <p>${content.role}<br />${content.location}</p>
       </div>
+
+      ${renderExperienceNav(content)}
 
       <nav class="primary-links" aria-label="${content.primaryLabel}">
         <a href="${routes.blog}" aria-label="Blog">Blog</a>
@@ -145,6 +169,7 @@ if (app) {
   app.innerHTML = renderHome(content, locale);
   setupTheme(content);
   setupReveals(reducedMotion);
+  setupTimeline();
 
   const canvas = document.querySelector<HTMLCanvasElement>(
     '[data-intro-canvas]',

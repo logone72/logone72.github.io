@@ -97,9 +97,8 @@ const drawFrame = (
   const desktop = window.matchMedia('(min-width: 900px)').matches;
   const styles = getComputedStyle(document.documentElement);
   const railWidth = Number.parseFloat(styles.getPropertyValue('--rail-width'));
-  const toolbarHeight = Number.parseFloat(
-    styles.getPropertyValue('--toolbar-height'),
-  );
+  const toolbarHeight =
+    document.querySelector('.sidebar')?.getBoundingClientRect().bottom ?? 0;
   const targetX = desktop ? size.width - railWidth : size.width / 2;
   const mobileTurn = desktop ? 0 : ease((progress - 0.76) / 0.24);
   const count = desktop ? 26 : 18;
@@ -194,12 +193,14 @@ export const setupIntro = ({
     if (event.key === 'Escape') animation.finish();
   });
   replayButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, left: 0 });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     animation.play(reducedMotion.matches ? SHORT_DURATION : FULL_DURATION);
   });
   window.addEventListener('resize', animation.resize);
 
-  const alreadySeen = document.documentElement.dataset.intro === 'seen';
+  const alreadySeen =
+    document.documentElement.dataset.intro === 'seen' ||
+    Boolean(window.location.hash);
   delete document.documentElement.dataset.intro;
   if (alreadySeen || reducedMotion.matches) {
     animation.finishImmediately();

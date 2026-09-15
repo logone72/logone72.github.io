@@ -1,6 +1,7 @@
 export type Locale = 'en' | 'ko';
 
 type Experience = {
+  id: string;
   company: string;
   description: string;
   period: string;
@@ -57,6 +58,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
     themeLight: 'Light mode',
     experience: [
       {
+        id: 'standby-lab',
         period: 'Oct 2024 to present',
         company: 'Standby Lab',
         role: 'Frontend Developer',
@@ -65,6 +67,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
         skills: ['TypeScript', 'React', 'Vite', 'React Query'],
       },
       {
+        id: 'teamo2',
         period: 'Jan 2022 to Jun 2024',
         company: 'TeamO2 (Carmore)',
         role: 'Frontend Engineer',
@@ -73,6 +76,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
         skills: ['JavaScript', 'TypeScript', 'React', 'Webpack'],
       },
       {
+        id: 'kaist',
         period: 'Aug 2021 to Dec 2021',
         company: 'KAIST',
         role: 'SW Jungle (non-degree program)',
@@ -81,6 +85,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
         skills: ['C', 'Algorithms', 'Operating Systems', 'Web'],
       },
       {
+        id: 'ucl',
         period: 'Sep 2014 to Oct 2019',
         company: 'University College London',
         role: 'BSc in Mathematics',
@@ -111,6 +116,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
     themeLight: '라이트 모드',
     experience: [
       {
+        id: 'standby-lab',
         period: '2024.10 — 현재',
         company: '스탠바이랩',
         role: '프론트엔드 개발자',
@@ -119,6 +125,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
         skills: ['TypeScript', 'React', 'Vite', 'React Query'],
       },
       {
+        id: 'teamo2',
         period: '2022.01 — 2024.06',
         company: '팀오투 (카모아)',
         role: '프론트엔드 엔지니어',
@@ -127,6 +134,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
         skills: ['JavaScript', 'TypeScript', 'React', 'Webpack'],
       },
       {
+        id: 'kaist',
         period: '2021.08 — 2021.12',
         company: 'KAIST SW 사관학교 정글',
         role: '비학위 소프트웨어 교육과정',
@@ -135,6 +143,7 @@ export const contentByLocale: Record<Locale, HomeContent> = {
         skills: ['C', '알고리즘', '운영체제', '웹'],
       },
       {
+        id: 'ucl',
         period: '2014.09 — 2019.10',
         company: 'University College London',
         role: '수학 학사',
