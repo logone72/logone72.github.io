@@ -75,3 +75,105 @@ export const setupTimeline = () => {
   new ResizeObserver(measure).observe(sidebar);
   measure();
 };
+
+const setupKnotMagnet = (reducedMotion: MediaQueryList) => {
+  document
+    .querySelectorAll<HTMLElement>('.timeline-anchor')
+    .forEach((anchor) => {
+      const knot = anchor.querySelector<HTMLElement>('.timeline-knot')!;
+      const reset = () => {
+        knot.style.removeProperty('--knot-x');
+        knot.style.removeProperty('--knot-y');
+      };
+      anchor.addEventListener('pointermove', (event) => {
+        if (
+          reducedMotion.matches ||
+          event.pointerType !== 'mouse' ||
+          innerWidth < 900
+        )
+          return;
+        const rect = anchor.getBoundingClientRect();
+        knot.style.setProperty(
+          '--knot-x',
+          `${(event.clientX - rect.left - 22) * 0.14}px`,
+        );
+        knot.style.setProperty(
+          '--knot-y',
+          `${(event.clientY - rect.top - 22) * 0.14}px`,
+        );
+      });
+      anchor.addEventListener('pointerleave', reset);
+      anchor.addEventListener('blur', reset);
+      reducedMotion.addEventListener('change', reset);
+      window.addEventListener('resize', reset);
+    });
+};
+
+const bindTimelineLinks = (select: (link: HTMLAnchorElement) => void) => {
+  document
+    .querySelectorAll<HTMLAnchorElement>('.experience-nav a, .timeline-anchor')
+    .forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (
+          event.ctrlKey ||
+          event.metaKey ||
+          event.shiftKey ||
+          event.altKey ||
+          event.button !== 0
+        )
+          return;
+        select(link);
+      });
+    });
+};
+
+export const setupTimelineFeedback = (
+  reducedMotion: MediaQueryList,
+  pluck: (y: number, strength: number) => void,
+) => {
+  setupKnotMagnet(reducedMotion);
+  let pending: HTMLElement | null = null;
+  let timer = 0;
+  let animation: Animation | undefined;
+  const cancel = () => {
+    clearTimeout(timer);
+    pending = null;
+    animation?.cancel();
+  };
+  const arrive = () => {
+    const item = pending;
+    pending = null;
+    if (!item?.classList.contains('is-current') || reducedMotion.matches)
+      return;
+    const knot = item.querySelector<HTMLElement>('.timeline-knot')!;
+    pluck(knot.getBoundingClientRect().top + 4, 5);
+    animation = knot.animate(
+      [
+        { scale: 1 },
+        { scale: 1.8, offset: 0.25 },
+        { scale: 0.85, offset: 0.6 },
+        { scale: 1 },
+      ],
+      { duration: 600, easing: 'ease-out' },
+    );
+  };
+  const settle = () => {
+    clearTimeout(timer);
+    if (pending) timer = window.setTimeout(arrive, 160);
+  };
+  bindTimelineLinks((link) => {
+    cancel();
+    pending = document.getElementById(link.hash.slice(1));
+    pluck(link.getBoundingClientRect().top + 22, 6);
+    settle();
+  });
+  window.addEventListener('scroll', settle, { passive: true });
+  window.addEventListener('wheel', cancel, { passive: true });
+  window.addEventListener('touchstart', cancel, { passive: true });
+  window.addEventListener('blur', cancel);
+  document.addEventListener('visibilitychange', cancel);
+  document
+    .querySelector('[data-replay-intro]')
+    ?.addEventListener('click', cancel);
+  reducedMotion.addEventListener('change', cancel);
+};

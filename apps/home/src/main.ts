@@ -2,14 +2,17 @@ import './style.css';
 
 import { routes } from '../../../src/router/index.mjs';
 import { contentByLocale, type HomeContent, type Locale } from './content';
+import { setupElasticRail } from './elastic-rail';
+import { setupHeroGrid } from './hero-grid';
 import { setupIntro } from './intro';
-import { setupTimeline } from './timeline';
+import { setupTimeline, setupTimelineFeedback } from './timeline';
 
 const renderExperience = (content: HomeContent) =>
   content.experience
     .map(
       (entry, index) => `
         <article class="timeline-item" id="experience-${entry.id}" tabindex="-1" aria-labelledby="company-${entry.id}">
+          <a class="timeline-anchor" href="#experience-${entry.id}" aria-label="${entry.company}"><span class="timeline-knot" aria-hidden="true"></span></a>
           <p class="timeline-index">${String(index + 1).padStart(2, '0')}</p>
           <div class="timeline-period">${entry.period}</div>
           <div class="timeline-copy">
@@ -170,6 +173,9 @@ if (app) {
   setupTheme(content);
   setupReveals(reducedMotion);
   setupTimeline();
+  setupHeroGrid(reducedMotion);
+  const pluck = setupElasticRail(reducedMotion);
+  setupTimelineFeedback(reducedMotion, pluck);
 
   const canvas = document.querySelector<HTMLCanvasElement>(
     '[data-intro-canvas]',
