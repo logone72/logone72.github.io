@@ -9,7 +9,7 @@ export const getReadingIndex = (
 
 const markCurrentItem = (
   items: HTMLElement[],
-  links: HTMLAnchorElement[],
+  links: Element[],
   current: number,
 ) => {
   items.forEach((item, index) =>
@@ -21,13 +21,11 @@ const markCurrentItem = (
   });
 };
 
-export const setupTimeline = () => {
+export const setupTimeline = (onArrive: (item: HTMLElement) => void) => {
   const sidebar = document.querySelector<HTMLElement>('.sidebar');
   const caption = document.querySelector<HTMLElement>('.reading-position');
   const items = [...document.querySelectorAll<HTMLElement>('.timeline-item')];
-  const links = [
-    ...document.querySelectorAll<HTMLAnchorElement>('.experience-nav a'),
-  ];
+  const links = [...document.querySelectorAll('.experience-nav a')];
   if (!sidebar || !caption || !items.length) return;
 
   const label = caption.textContent;
@@ -48,6 +46,7 @@ export const setupTimeline = () => {
     if (next === current) return;
     current = next;
     markCurrentItem(items, links, current);
+    if (items[current]) onArrive(items[current]);
     caption.textContent =
       links[current]?.querySelector('.experience-nav-company')?.textContent ??
       label;
@@ -146,7 +145,6 @@ export const setupTimelineFeedback = (
     if (!item?.classList.contains('is-current') || reducedMotion.matches)
       return;
     const knot = item.querySelector<HTMLElement>('.timeline-knot')!;
-    pluck(knot.getBoundingClientRect().top + 4, 5);
     animation = knot.animate(
       [
         { scale: 1 },
@@ -164,7 +162,7 @@ export const setupTimelineFeedback = (
   bindTimelineLinks((link) => {
     cancel();
     pending = document.getElementById(link.hash.slice(1));
-    pluck(link.getBoundingClientRect().top + 22, 6);
+    pluck(link.getBoundingClientRect().top + 22, 16);
     settle();
   });
   window.addEventListener('scroll', settle, { passive: true });

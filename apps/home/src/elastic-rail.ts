@@ -1,4 +1,13 @@
-type Ripple = { y: number; strength: number; started: number };
+const RIPPLE_DURATION = 900;
+const MAX_DISPLACEMENT = 24;
+const THREAD_REACH = 0.65;
+
+type Ripple = {
+  y: number;
+  strength: number;
+  started: number;
+  source?: HTMLElement;
+};
 type RailState = {
   x: number;
   height: number;
@@ -13,14 +22,29 @@ export const rippleOffset = (
   age: number,
   strength: number,
 ) => {
-  if (age < 0 || age >= 900) return 0;
-  const front = Math.abs(distance) - age * 0.8;
+  if (age < 0 || age >= RIPPLE_DURATION) return 0;
+  const front = Math.abs(distance) - age * 0.9;
   return (
-    Math.cos(front / 24) *
-    Math.exp(-((front / 90) ** 2)) *
+    Math.cos(front / 32) *
+    Math.exp(-((front / 150) ** 2)) *
     Math.exp(-age / 320) *
-    (1 - age / 900) *
-    Math.max(-10, Math.min(10, strength))
+    (1 - age / RIPPLE_DURATION) *
+    Math.max(-MAX_DISPLACEMENT, Math.min(MAX_DISPLACEMENT, strength))
+  );
+};
+
+export const threadOffset = (progress: number, age: number) => {
+  // 점에서 출발한 파동은 이동하면서 약해져 선 끝에 닿기 전에 사라집니다.
+  const localAge = age - progress * 560;
+  if (progress <= 0 || progress >= THREAD_REACH) return 0;
+  if (localAge <= 0 || localAge >= 160) return 0;
+  const phase = localAge / 160;
+  return (
+    Math.sin(phase * Math.PI * 2) *
+    Math.sin(phase * Math.PI) ** 2 *
+    (1 - (progress / THREAD_REACH) ** 2) ** 2 *
+    Math.min(1, progress / 0.04) *
+    18
   );
 };
 
@@ -42,27 +66,71 @@ export const railOffset = (
     (state.height - y) / 48,
     ...knots.map((knot) => Math.abs(y - knot) / 36),
   );
-  return Math.max(-10, Math.min(10, pull + wave)) * Math.max(0, anchor);
+  return (
+    Math.max(-MAX_DISPLACEMENT, Math.min(MAX_DISPLACEMENT, pull + wave)) *
+    Math.max(0, anchor)
+  );
 };
+
+const drawRail = (
+  path: SVGPathElement,
+  state: RailState,
+  now: number,
+  knots: HTMLElement[],
+) => {
+  state.pull += (state.target - state.pull) * 0.22;
+  if (Math.abs(state.target - state.pull) < 0.01) state.pull = state.target;
+  state.ripples = state.ripples.filter(
+    (ripple) => now - ripple.started < RIPPLE_DURATION,
+  );
+  state.ripples.forEach((ripple) => {
+    if (ripple.source) ripple.y = ripple.source.getBoundingClientRect().top;
+  });
+  const anchors = knots.map((knot) => knot.getBoundingClientRect().top + 22);
+  let data = '';
+  for (let y = 0; y <= state.height; y += 8) {
+    data += `${y === 0 ? 'M' : 'L'}${20 + railOffset(y, state, now, anchors)},${y} `;
+  }
+  path.setAttribute('d', `${data}L20,${state.height}`);
+};
+
+type Arrival = { path: SVGPathElement; started: number };
+const drawThread = (arrival: Arrival | null, now: number) => {
+  if (!arrival) return null;
+  const age = now - arrival.started;
+  if (age >= THREAD_REACH * 560 + 160) {
+    arrival.path.setAttribute('d', 'M1000,16 L0,16');
+    return null;
+  }
+  let data = '';
+  for (let step = 0; step <= 64; step++) {
+    const progress = step / 64;
+    data += `${step === 0 ? 'M' : 'L'}${1000 * (1 - progress)},${16 + threadOffset(progress, age)} `;
+  }
+  arrival.path.setAttribute('d', data);
+  return arrival;
+};
+
+const canAnimateRail = (svg: SVGSVGElement) =>
+  !svg.hasAttribute('hidden') &&
+  !document.hidden &&
+  !document.body.classList.contains('intro-active');
 
 const createRailAnimation = (svg: SVGSVGElement, state: RailState) => {
   const path = svg.querySelector('path')!;
   const knots = [...document.querySelectorAll<HTMLElement>('.timeline-anchor')];
   let frame = 0;
+  let arrival: Arrival | null = null;
+  const resetThread = () => {
+    arrival?.path.setAttribute('d', 'M1000,16 L0,16');
+    arrival = null;
+  };
   const draw = (now: number) => {
     frame = 0;
-    state.pull += (state.target - state.pull) * 0.22;
-    if (Math.abs(state.target - state.pull) < 0.01) state.pull = state.target;
-    state.ripples = state.ripples.filter(
-      (ripple) => now - ripple.started < 900,
-    );
-    const anchors = knots.map((knot) => knot.getBoundingClientRect().top + 22);
-    let data = '';
-    for (let y = 0; y <= state.height; y += 8) {
-      data += `${y === 0 ? 'M' : 'L'}${20 + railOffset(y, state, now, anchors)},${y} `;
-    }
-    path.setAttribute('d', `${data}L20,${state.height}`);
-    if (state.ripples.length || state.pull !== state.target) request();
+    drawRail(path, state, now, knots);
+    arrival = drawThread(arrival, now);
+    if (state.ripples.length || arrival || state.pull !== state.target)
+      request();
   };
   const request = () => {
     if (!frame && !svg.hasAttribute('hidden'))
@@ -73,22 +141,26 @@ const createRailAnimation = (svg: SVGSVGElement, state: RailState) => {
     frame = 0;
     state.target = state.pull = 0;
     state.ripples = [];
+    resetThread();
     path.setAttribute('d', `M20,0 L20,${state.height}`);
   };
-  const pluck = (y: number, strength: number) => {
-    if (
-      svg.hasAttribute('hidden') ||
-      document.hidden ||
-      document.body.classList.contains('intro-active')
-    )
-      return;
+  const pluck = (y: number, strength: number, source?: HTMLElement) => {
+    if (!canAnimateRail(svg)) return;
     state.ripples = [
       ...state.ripples.slice(-2),
-      { y, strength, started: performance.now() },
+      { y, strength, started: performance.now(), source },
     ];
     request();
   };
-  return { request, reset, pluck };
+  const arrive = (item: HTMLElement) => {
+    resetThread();
+    if (!canAnimateRail(svg)) return;
+    const thread = item.querySelector<SVGPathElement>('.timeline-thread path');
+    if (!thread) return;
+    arrival = { path: thread, started: performance.now() };
+    pluck(item.getBoundingClientRect().top, 24, item);
+  };
+  return { request, reset, pluck, arrive };
 };
 
 const bindRailPointer = (
@@ -98,22 +170,17 @@ const bindRailPointer = (
 ) => {
   let previous: { x: number; time: number } | null = null;
   document.addEventListener('pointermove', (event) => {
-    if (
-      svg.hasAttribute('hidden') ||
-      event.pointerType !== 'mouse' ||
-      document.body.classList.contains('intro-active')
-    )
-      return;
+    if (!canAnimateRail(svg) || event.pointerType !== 'mouse') return;
     const distance = event.clientX - state.x;
     const now = performance.now();
     state.y = event.clientY;
-    state.target = distance * Math.max(0, 1 - Math.abs(distance) / 48) * 0.55;
+    state.target = distance * Math.max(0, 1 - Math.abs(distance) / 76) * 0.95;
     if (previous && (previous.x - state.x) * distance < 0) {
       const speed =
         (event.clientX - previous.x) / Math.max(16, now - previous.time);
       animation.pluck(
         event.clientY,
-        Math.sign(speed) * Math.min(10, 3 + Math.abs(speed) * 4),
+        Math.sign(speed) * Math.min(MAX_DISPLACEMENT, 14 + Math.abs(speed) * 7),
       );
     }
     previous = { x: event.clientX, time: now };
@@ -138,7 +205,7 @@ const bindRailPointer = (
 
 export const setupElasticRail = (reducedMotion: MediaQueryList) => {
   const sidebar = document.querySelector<HTMLElement>('.sidebar');
-  if (!sidebar) return () => {};
+  if (!sidebar) return { pluck: () => {}, arrive: () => {} };
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.classList.add('elastic-rail');
   svg.setAttribute('aria-hidden', 'true');
@@ -177,5 +244,5 @@ export const setupElasticRail = (reducedMotion: MediaQueryList) => {
     if (document.body.classList.contains('intro-active')) animation.reset();
   }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   resize();
-  return animation.pluck;
+  return { pluck: animation.pluck, arrive: animation.arrive };
 };
